@@ -1,21 +1,18 @@
-/* Définir le style pour le corps de la page */
 body {
     font-family: Arial, sans-serif;
-    background-color: #f0f0f0;
+    background-color: ;
     margin: 0;
     padding: 0;
 }
 
-/* Styliser les titres */
 h1 {
-    color: #333;
+    color: ;
     text-align: center;
     margin-top: 20px;
 }
 
-/* Styliser les paragraphes */
 p {
-    color: #666;
+    color: ;
     line-height: 1.6;
     margin: 20px;
 }
