@@ -18,7 +18,6 @@
 }
 
 .factory {
-  background-color: transparent;
   background-image: url("/rsc/sprites/map/factory.svg");
 }
 
@@ -59,7 +58,7 @@
   right: 0;
   height: 25%;
   color: white;
-  text-align: center;
+  text-align: left;
   line-height: 50px;
   transition: transform 0.3s ease;
 }
@@ -109,34 +108,80 @@ input[type="checkbox"]:checked + .toggle-footer img {
   transform: rotate(180deg);
 }
 
+.section_name {
+    position: absolute;
+    top: -2px;
+    pointer-events: none;
+}
+
 #city {
   display: flex;
   flex-direction: row;
   padding-left: 20px;
-  padding-bottom: 20px;
+  padding-bottom: 10px;
   overflow: auto;
-
 }
 
+.entity-display {
+    display: block;
+    border-radius: 20px;
+    border-color: white;
+    border: 2px solid;
+    background-color: #474747;
+    flex: content 1 auto;
+    margin-right: 10px;
+    padding: 20px;
+    padding-top: 30px;
+    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  }
+
 .shop {
-display: block;
-  border-radius: 25px;
+  display: block;
+  border-radius: 20px;
   border-color: white;
+  border: 2px solid;
   background-color: #474747;
   flex: content 1 auto;
-  margin-right: 20px;
+  margin-right: 10px;
   padding: 20px;
-  overflow: auto;
-  align-items: left;
+  padding-top: 30px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
 }
 
 .shop-description {
-  border-radius: 25px;
+  border-radius: 20px;
   border-color: white;
-  border-width: 2px;
+  border: 2px solid;
   background-color: #474747;
   flex: 1 1 auto;
-  margin-right: 20px;
-  overflow: scroll;
-  justify-content: start
+  margin-right: 10px;
+  padding: 20px;
+  align-items: start;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  scroll-padding: 15px;
+}
+
+
+.scroll-content {
+    max-height: 150px; /* Fixe une hauteur spécifique pour la zone défilable */
+    overflow-y: auto; /* Active le scroll vertical uniquement */
+    overflow-x: hidden; /* Cache le scroll horizontal */
+    padding-right: 10px; /* Ajoute de l'espace pour la barre de défilement */
+    padding-top: 0px;
+    box-sizing: border-box; /* Assure le respect des dimensions */
+  }
+
+.scroll-content a {
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    border: 2px solid;
+    padding: 5px;
+}
+
+
+.scroll-content  a:hover {
+    border-color: red;
+    color: red;
+    line-height: 15px;
 }
