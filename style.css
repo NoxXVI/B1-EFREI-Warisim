@@ -1,65 +1,75 @@
- /* Style global */
- body {
-    font-family: Arial, sans-serif;
-    background-color: rgb(195, 206, 234);
-    color: #322c2c;
-}
+    /* Style global */
+    body {
+        font-family: Arial, sans-serif;
+        background-color: rgb(211, 211, 211);
+        color: #322c2c;
+    }
 
-/* Style du titre principal */
-h1 {
-    text-align: center;
-    color: #2b2b52;
-    padding: 20px;
-    border: 3.5mm ridge rgba(211, 220, 50, 0.6);
-    font-family: 'Sixtyfour Convergence', sans-serif;
-    font-size: 4rem;
+    /* Style du titre principal */
+    h1 {
+        text-align: center;
+        border: 5mm ridge, rgb(243, 68, 68);
+        font-family: 'Sixtyfour Convergence', sans-serif;
+        font-size: 4.5rem;
+        padding-top: 20px;
+        padding-bottom: 20px;
+        background-color: rgb(221, 215, 215);
 
+    }
 
-}
+    /* Style du label et du select */
+    label {
+        display: block;
+        margin: 20px auto;
+        text-align: center;
+        font-size: 1.2rem;
+    }
 
-/* Style du label et du select */
-label {
-    display: block;
-    margin: 20px auto;
-    text-align: center;
-    font-size: 1.2rem;
-}
+    select {
+        display: block;
+        margin: 0 auto;
+        padding: 10px 15px;
+        font-size: 1rem;
+        border-radius: 5px;
+        border: 2px solid #29294a;
+        background-color: #fff;
+        ;
+    }
 
-select {
-    display: block; 
-    margin: 0 auto;
-    padding: 10px 15px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 2px solid #29294a;
-    background-color: #fff;
-    ;
-}
+    select:hover {
+        background-color: #ffffff;
+    }
 
-select:hover {
-    background-color: #ffffff;
-}
+    /* Style du bouton */
+    button {
+        display: block;
+        margin: 20px auto;
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #247c31;
+        border-radius: 5px;
+        transition: transform 0.4s ease, background-color 0.3s ease;
+    }
 
-/* Style du bouton */
-button {
-    display: block;
-    margin: 20px auto;
-    padding: 10px 20px;
-    color: #fff;
-    background-color: #2b2b52;
-    border-radius: 5px;
-    transition: background-color 0.3s ease, transform 0.2s;
-}
+    button:hover {
+        background-color: #323376;
+        transform: scale(1.25);
+    }
 
-button:hover {
-    background-color: #464775;
-    transform: scale(1.25);
-}
+    /* Style pour le conteneur de configuration (Config) */
+    /* div {
+        text-align: center;
+        margin-top: 20px;
+        margin-bottom: 80px;
+        font-size: 1.3rem;
+        color: #555;
+    } */
 
-/* Style pour le conteneur de configuration (Config) */
-div {
-    text-align: center;
-    margin-top: 80px;
-    font-size: 1.3rem;
-    color: #555;
-}
+    div {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 20px;
+        margin-bottom: 80px;
+
+    }
