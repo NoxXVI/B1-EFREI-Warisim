@@ -1,98 +1,142 @@
 #map {
-    display: grid;
-    grid-template-columns: repeat(30, 64px); /* 30 colonnes */
-    grid-template-rows: repeat(20, 64px); /* 20 lignes */
-    gap: 0; /* Aucun espace entre les cases */
-    position: relative;
-    width: fit-content; /* Ajuste la taille du conteneur à la grille */
-    margin: 0 auto; /* Centrer la grille sur la page */
-    border: 2px solid #000; /* Ajout d'une bordure pour visualiser la grille */
+  display: grid;
+  grid-template-columns: repeat(30, 64px); /* 30 colonnes */
+  grid-template-rows: repeat(20, 64px); /* 20 lignes */
+  gap: 0; /* Aucun espace entre les cases */
+  position: relative;
+  width: fit-content; /* Ajuste la taille du conteneur à la grille */
+  margin: 0 auto; /* Centrer la grille sur la page */
+  border: 2px solid #000; /* Ajout d'une bordure pour visualiser la grille */
 }
 
 .tile {
-    width: 64px;
-    height: 64px;
-    background-size: cover; /* Adapte l'image à la taille de la case */
-    background-position: center; /* Centre l'image */
-    background-repeat: no-repeat
+  width: 64px;
+  height: 64px;
+  background-size: cover; /* Adapte l'image à la taille de la case */
+  background-position: center; /* Centre l'image */
+  background-repeat: no-repeat;
 }
 
 .factory {
-    background-image: url( '/rsc/factory.svg' );
+  background-color: transparent;
+  background-image: url("/rsc/sprites/map/factory.svg");
 }
 
 .city {
-    background-image: url( '/rsc/city.svg' );
+  background-image: url("/rsc/sprites/map/city.svg");
 }
 
 .grass {
-    background-color: #7cfc00;
+  background-color: #7cfc00;
 }
 
 .road {
-    background-color: #474747;
+  background-color: #474747;
 }
 
 .bridge {
-    background-color: #939393;
+  background-color: #939393;
 }
 
 .river {
-    background-color: blue;
+  background-color: blue;
 }
 
+/* Menu */
 
-/* Fight bar
-/* Réinitialisation de base */
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    padding-bottom: 60px; /* Ajout d'un espace pour éviter que le contenu ne soit masqué par la barre */
+.footer-wrapper {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  transition: transform 0.3s ease;
 }
 
-/* Contenu principal */
-.main-content {
-    padding: 20px;
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 25%;
+  color: white;
+  text-align: center;
+  line-height: 50px;
+  transition: transform 0.3s ease;
 }
 
-/* Style de la barre inférieure */
-.bottom-bar {
-    position: fixed; /* Fixée en bas de la fenêtre */
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 60px; /* Hauteur de la barre */
-    background-color: #333; /* Couleur de fond */
-    color: white;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Légère ombre au-dessus */
-    z-index: 1000; /* S'assurer qu'elle est au-dessus des autres éléments */
+/* Le chevron pour contrôler */
+.toggle-footer {
+  display: flex;
+  position: fixed;
+  bottom: 30%;
+  right: 20px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: transform 0.3s ease;
 }
 
-/* Liste dans la bottom-bar */
-.bottom-bar ul {
-    list-style: none;
-    display: flex;
-    margin: 0;
-    padding: 0;
-    gap: 20px;
+.toggle-footer svg {
+  width: 20px;
+  height: 20px;
+  fill: white;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
 }
 
-.bottom-bar ul li {
-    text-align: center;
+input[type="checkbox"] {
+  transition: transform 0.2s ease;
+  display: none;
 }
 
-.bottom-bar ul li a {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
+/* Animation pour le footer */
+input[type="checkbox"]:checked ~ .footer {
+  transition: transform 0.2s ease;
+  transform: translateY(100%);
 }
 
-.bottom-bar ul li a:hover {
-    color: #00bcd4; /* Couleur survolée */
+/* Animation pour le chevron */
+input[type="checkbox"]:checked + .toggle-footer img {
+  transition: transform 0.2s ease;
+  transform: rotate(180deg);
 }
 
+#city {
+  display: flex;
+  flex-direction: row;
+  padding-left: 20px;
+  padding-bottom: 20px;
+  overflow: auto;
 
+}
+
+.shop {
+display: block;
+  border-radius: 25px;
+  border-color: white;
+  background-color: #474747;
+  flex: content 1 auto;
+  margin-right: 20px;
+  padding: 20px;
+  overflow: auto;
+  align-items: left;
+}
+
+.shop-description {
+  border-radius: 25px;
+  border-color: white;
+  border-width: 2px;
+  background-color: #474747;
+  flex: 1 1 auto;
+  margin-right: 20px;
+  overflow: scroll;
+  justify-content: start
+}

@@ -1,0 +1,195 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   version="1.1"
+   viewBox="0 0 134.40772661674293 121.64514839653077"
+   width="134.40772661674293"
+   height="121.64514839653077"
+   id="svg18"
+   sodipodi:docname="factory.svg"
+   inkscape:version="1.4 (86a8ad7, 2024-10-11)"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <sodipodi:namedview
+     id="namedview18"
+     pagecolor="#505050"
+     bordercolor="#eeeeee"
+     borderopacity="1"
+     inkscape:showpageshadow="0"
+     inkscape:pageopacity="0"
+     inkscape:pagecheckerboard="0"
+     inkscape:deskcolor="#505050"
+     inkscape:zoom="7.2752593"
+     inkscape:cx="67.214099"
+     inkscape:cy="68.932251"
+     inkscape:window-width="1920"
+     inkscape:window-height="1166"
+     inkscape:window-x="-11"
+     inkscape:window-y="-11"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg18" />
+  <!-- svg-source:excalidraw -->
+  <defs
+     id="defs1">
+    <style
+       class="style-fonts"
+       id="style1" />
+  </defs>
+  <g
+     stroke-linecap="round"
+     transform="translate(9.7250958,65.376245)"
+     id="g2">
+    <path
+       d="M -0.42,0.27 112.85,-1 115.22,56.18 0.83,54.47"
+       stroke="none"
+       stroke-width="0"
+       fill="#1e1e1e"
+       id="path1" />
+    <path
+       d="M 0,0 C 32.95,-2.8 65.57,-0.81 113.95,0 M 0,0 c 36.13,2 72.27,0.8 113.95,0 m 0,0 c 0.13,16.07 0.26,28.02 0,54.24 m 0,-54.24 c -1.06,13.27 -0.26,26 0,54.24 m 0,0 C 69.43,54.73 24.37,54.65 0,54.24 m 113.95,0 C 86.94,53.74 62.3,54.02 0,54.24 m 0,0 C -0.51,33.32 -1.6,14.75 0,0 M 0,54.24 C -1.51,36.33 -0.82,20.03 0,0"
+       stroke="#1e1e1e"
+       stroke-width="2"
+       fill="none"
+       id="path2" />
+  </g>
+  <g
+     stroke-linecap="round"
+     transform="translate(10.180855,36.660348)"
+     id="g4">
+    <path
+       d="M 16.2,-1.39 34.7,29.6 19.16,54.95 -1.58,27.49"
+       stroke="none"
+       stroke-width="0"
+       fill="#1e1e1e"
+       fill-rule="evenodd"
+       id="path3" />
+    <path
+       d="m 18,0 c 4.93,6.52 8.42,16.48 17.55,28 M 18,0 c 6.4,11.08 14.71,21.5 17.55,28 m 0,0 C 26.96,39.71 23.5,48.81 18,54.24 M 35.55,28 C 31.02,34.54 27.76,41.68 18,54.24 m 0,0 C 13.03,49.5 8.14,41.93 0,28 M 18,54.24 C 11.52,45.63 4.98,36.59 0,28 m 0,0 C 3.07,18.69 8.06,11.71 18,0 M 0,28 C 6.85,16.53 13.06,7.6 18,0"
+       stroke="#1e1e1e"
+       stroke-width="2"
+       fill="none"
+       id="path4" />
+  </g>
+  <g
+     stroke-linecap="round"
+     transform="translate(43.454833,36.888259)"
+     id="g6">
+    <path
+       d="M 17.19,-1.27 35.46,27.4 17.22,56.19 -1.09,28.97"
+       stroke="none"
+       stroke-width="0"
+       fill="#1e1e1e"
+       fill-rule="evenodd"
+       id="path5" />
+    <path
+       d="m 18,0 c 5.55,8.36 10.58,13.75 17.55,28 M 18,0 c 6.67,10.24 13.73,22.82 17.55,28 m 0,0 C 28.69,36.88 27.38,44.75 18,54.24 M 35.55,28 C 30.92,34.58 26.05,42.32 18,54.24 m 0,0 C 14.6,47.96 8.16,40.76 0,28 M 18,54.24 C 13.21,46.43 8.04,39.94 0,28 m 0,0 C 6.34,21.42 12.22,9.86 18,0 M 0,28 C 6.54,17.16 13.31,6.87 18,0"
+       stroke="#1e1e1e"
+       stroke-width="2"
+       fill="none"
+       id="path6" />
+  </g>
+  <g
+     stroke-linecap="round"
+     transform="translate(76.272948,35.520836)"
+     id="g8">
+    <path
+       d="M 18.8,0.79 37.04,29.85 19.27,55.72 -0.58,28.8"
+       stroke="none"
+       stroke-width="0"
+       fill="#1e1e1e"
+       fill-rule="evenodd"
+       id="path7" />
+    <path
+       d="m 18,0 c 2.05,4.13 8.54,13.06 17.55,28 M 18,0 c 5.74,9.85 12.32,20.05 17.55,28 m 0,0 C 30.64,35.76 26.8,39.74 18,54.24 M 35.55,28 C 32.72,33.26 27.24,37.98 18,54.24 m 0,0 C 11.8,45.55 10.59,39.03 0,28 M 18,54.24 C 9.93,43.7 3.04,34.59 0,28 m 0,0 C 3.99,22.76 7.2,13.05 18,0 M 0,28 C 4.76,18.8 11.66,10.38 18,0"
+       stroke="#1e1e1e"
+       stroke-width="2"
+       fill="none"
+       id="path8" />
+  </g>
+  <g
+     stroke-linecap="round"
+     transform="translate(103.62148,17.972224)"
+     id="g10">
+    <path
+       d="M -0.64,1.21 20.64,1.46 18.9,88.84 0.36,88.46"
+       stroke="none"
+       stroke-width="0"
+       fill="#1e1e1e"
+       id="path9" />
+    <path
+       d="M 0,0 C 6.54,0.79 11.27,1.09 20.51,0 M 0,0 c 6.15,0.02 11.76,-0.29 20.51,0 m 0,0 c 0.8,25.34 -1.65,52.79 0,87.97 M 20.51,0 c -0.09,31.18 -0.87,62.18 0,87.97 m 0,0 c -3.9,-0.53 -8.42,-0.78 -20.51,0 m 20.51,0 C 15.73,87.89 8.67,88.43 0,87.97 m 0,0 C 1.54,54.23 1.07,23.01 0,0 M 0,87.97 C 0.25,62.88 -0.46,36.01 0,0"
+       stroke="#1e1e1e"
+       stroke-width="2"
+       fill="none"
+       id="path10" />
+  </g>
+  <g
+     stroke-linecap="round"
+     transform="translate(14.283124,75.396989)"
+     id="g12">
+    <path
+       d="M -0.14,-0.09 16.01,-0.2 16.38,26.94 0.33,27.57"
+       stroke="none"
+       stroke-width="0"
+       fill="#ffffff"
+       id="path11" />
+    <path
+       d="M 0,0 C 6.68,0.85 11.29,-0.71 16.68,0 M 0,0 c 4.86,-0.2 8.93,0.38 16.68,0 m 0,0 c -0.04,5.35 0.19,11.51 0,26.94 M 16.68,0 c -0.41,7.88 -0.45,15.56 0,26.94 m 0,0 C 10.23,27.26 4.89,26.13 0,26.94 m 16.68,0 C 10.63,27.36 3.9,27.3 0,26.94 m 0,0 C 0.96,20.57 0.04,13.97 0,0 M 0,26.94 C 0.13,18.49 -0.15,10.98 0,0"
+       stroke="#846358"
+       stroke-width="2"
+       fill="none"
+       id="path12" />
+  </g>
+  <g
+     stroke-linecap="round"
+     transform="translate(44.004795,76.038464)"
+     id="g14">
+    <path
+       d="M -0.47,-0.23 16.54,-0.63 17.36,27.49 0.03,26.91"
+       stroke="none"
+       stroke-width="0"
+       fill="#ffffff"
+       id="path13" />
+    <path
+       d="M 0,0 C 6.8,0.6 12.84,-0.29 16.68,0 M 0,0 c 4.24,-0.05 8.32,0.35 16.68,0 m 0,0 c 0.43,6.98 -0.06,11.29 0,26.94 M 16.68,0 c -0.35,8.74 0.29,17.12 0,26.94 m 0,0 C 12.17,26.68 8.54,26.26 0,26.94 m 16.68,0 c -4.06,-0.2 -7.2,-0.08 -16.68,0 m 0,0 C -0.57,15.77 0.12,6.17 0,0 M 0,26.94 C -0.2,18.17 0.44,9.48 0,0"
+       stroke="#846358"
+       stroke-width="2"
+       fill="none"
+       id="path14" />
+  </g>
+  <g
+     stroke-linecap="round"
+     transform="translate(70.626008,75.290064)"
+     id="g16">
+    <path
+       d="M 0.24,-0.62 16.34,0.5 16.46,26.88 0.08,25.95"
+       stroke="none"
+       stroke-width="0"
+       fill="#ffffff"
+       id="path15" />
+    <path
+       d="M 0,0 C 4.21,0.26 7.07,-0.04 16.68,0 M 0,0 c 6.11,0.04 11.63,-0.05 16.68,0 m 0,0 c -0.75,6.16 -0.88,13.5 0,26.94 M 16.68,0 c -0.35,7.68 0.03,15.56 0,26.94 m 0,0 C 11.1,26.11 3.9,26.8 0,26.94 m 16.68,0 C 10.45,27.18 4.18,26.75 0,26.94 m 0,0 C 1.07,19.78 -0.77,11.88 0,0 M 0,26.94 C 0.4,20.86 -0.16,16.09 0,0"
+       stroke="#846358"
+       stroke-width="2"
+       fill="none"
+       id="path16" />
+  </g>
+  <g
+     stroke-linecap="round"
+     transform="translate(100.34768,75.931538)"
+     id="g18">
+    <path
+       d="m -0.33,0.5 16.79,-0.56 0.3,26.01 -16.64,0.92"
+       stroke="none"
+       stroke-width="0"
+       fill="#ffffff"
+       id="path17" />
+    <path
+       d="M 0,0 C 4.3,-0.1 9.07,-0.29 16.68,0 M 0,0 c 3.76,-0.1 7.64,0.02 16.68,0 m 0,0 c -0.98,9.84 -0.3,20.69 0,26.94 M 16.68,0 c -0.02,8.62 0.23,16.04 0,26.94 m 0,0 C 11.38,26.74 8.21,26.8 0,26.94 m 16.68,0 C 10.53,26.7 3.48,26.57 0,26.94 m 0,0 C -1.03,20.97 -1.02,16.38 0,0 M 0,26.94 C -0.24,18.39 0,8.58 0,0"
+       stroke="#846358"
+       stroke-width="2"
+       fill="none"
+       id="path18" />
+  </g>
+</svg>
