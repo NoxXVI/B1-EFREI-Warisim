@@ -1,10 +1,34 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 140" width="160" height="140">
-  <!-- svg-source:excalidraw -->
-  
-  <defs>
-    <style class="style-fonts">
-      
-    </style>
-    
-  </defs>
-  <rect x="0" y="0" width="160" height="140" fill="#ffffff"></rect><g stroke-linecap="round" transform="translate(10 30) rotate(0 30 40)"><path d="M0 0 L60 0 L60 80 L0 80" stroke="none" stroke-width="0" fill="#ffc9c9"></path><path d="M0 0 C20.06 0, 40.12 0, 60 0 M0 0 C18.28 0, 36.56 0, 60 0 M60 0 C60 17.03, 60 34.05, 60 80 M60 0 C60 20.15, 60 40.31, 60 80 M60 80 C43.87 80, 27.73 80, 0 80 M60 80 C36.42 80, 12.83 80, 0 80 M0 80 C0 49.58, 0 19.15, 0 0 M0 80 C0 58.57, 0 37.15, 0 0" stroke="#1e1e1e" stroke-width="2" fill="none"></path></g><g stroke-linecap="round" transform="translate(30 50) rotate(0 60 20)"><path d="M0 0 L120 0 L120 40 L0 40" stroke="none" stroke-width="0" fill="#e03131"></path><path d="M0 0 C31.3 0, 62.59 0, 120 0 M0 0 C40.06 0, 80.13 0, 120 0 M120 0 C120 11.31, 120 22.62, 120 40 M120 0 C120 8.15, 120 16.3, 120 40 M120 40 C84.63 40, 49.26 40, 0 40 M120 40 C73.06 40, 26.11 40, 0 40 M0 40 C0 30.59, 0 21.17, 0 0 M0 40 C0 31.83, 0 23.67, 0 0" stroke="#1e1e1e" stroke-width="2" fill="none"></path></g><g stroke-linecap="round" transform="translate(30 110) rotate(0 20 10)"><path d="M0 0 L40 0 L40 20 L0 20" stroke="none" stroke-width="0" fill="#ff8787"></path><path d="M0 0 C13.71 0, 27.43 0, 40 0 M0 0 C10.71 0, 21.42 0, 40 0 M40 0 C40 4.04, 40 8.07, 40 20 M40 0 C40 4.11, 40 8.22, 40 20 M40 20 C27.15 20, 14.29 20, 0 20 M40 20 C30.05 20, 20.1 20, 0 20 M0 20 C0 12.29, 0 4.59, 0 0 M0 20 C0 15.3, 0 10.59, 0 0" stroke="#1e1e1e" stroke-width="2" fill="none"></path></g><g stroke-linecap="round" transform="translate(30 10) rotate(0 20 10)"><path d="M0 0 L40 0 L40 20 L0 20" stroke="none" stroke-width="0" fill="#ff8787"></path><path d="M0 0 C12.85 0, 25.71 0, 40 0 M0 0 C9.95 0, 19.9 0, 40 0 M40 0 C40 7.71, 40 15.41, 40 20 M40 0 C40 4.7, 40 9.41, 40 20 M40 20 C29.43 20, 18.86 20, 0 20 M40 20 C28.73 20, 17.46 20, 0 20 M0 20 C0 15.33, 0 10.65, 0 0 M0 20 C0 14.69, 0 9.39, 0 0" stroke="#1e1e1e" stroke-width="2" fill="none"></path></g></svg>
+    <!-- svg-source:excalidraw -->
+
+    <defs>
+        <style class="style-fonts">
+
+        </style>
+
+    </defs>
+    <g stroke-linecap="round" transform="translate(10 30) rotate(0 30 40)">
+        <path d="M0 0 L60 0 L60 80 L0 80" stroke="none" stroke-width="0" fill="#ffc9c9"></path>
+        <path
+            d="M0 0 C20.06 0, 40.12 0, 60 0 M0 0 C18.28 0, 36.56 0, 60 0 M60 0 C60 17.03, 60 34.05, 60 80 M60 0 C60 20.15, 60 40.31, 60 80 M60 80 C43.87 80, 27.73 80, 0 80 M60 80 C36.42 80, 12.83 80, 0 80 M0 80 C0 49.58, 0 19.15, 0 0 M0 80 C0 58.57, 0 37.15, 0 0"
+            stroke="#1e1e1e" stroke-width="2" fill="none"></path>
+    </g>
+    <g stroke-linecap="round" transform="translate(30 50) rotate(0 60 20)">
+        <path d="M0 0 L120 0 L120 40 L0 40" stroke="none" stroke-width="0" fill="#e03131"></path>
+        <path
+            d="M0 0 C31.3 0, 62.59 0, 120 0 M0 0 C40.06 0, 80.13 0, 120 0 M120 0 C120 11.31, 120 22.62, 120 40 M120 0 C120 8.15, 120 16.3, 120 40 M120 40 C84.63 40, 49.26 40, 0 40 M120 40 C73.06 40, 26.11 40, 0 40 M0 40 C0 30.59, 0 21.17, 0 0 M0 40 C0 31.83, 0 23.67, 0 0"
+            stroke="#1e1e1e" stroke-width="2" fill="none"></path>
+    </g>
+    <g stroke-linecap="round" transform="translate(30 110) rotate(0 20 10)">
+        <path d="M0 0 L40 0 L40 20 L0 20" stroke="none" stroke-width="0" fill="#ff8787"></path>
+        <path
+            d="M0 0 C13.71 0, 27.43 0, 40 0 M0 0 C10.71 0, 21.42 0, 40 0 M40 0 C40 4.04, 40 8.07, 40 20 M40 0 C40 4.11, 40 8.22, 40 20 M40 20 C27.15 20, 14.29 20, 0 20 M40 20 C30.05 20, 20.1 20, 0 20 M0 20 C0 12.29, 0 4.59, 0 0 M0 20 C0 15.3, 0 10.59, 0 0"
+            stroke="#1e1e1e" stroke-width="2" fill="none"></path>
+    </g>
+    <g stroke-linecap="round" transform="translate(30 10) rotate(0 20 10)">
+        <path d="M0 0 L40 0 L40 20 L0 20" stroke="none" stroke-width="0" fill="#ff8787"></path>
+        <path
+            d="M0 0 C12.85 0, 25.71 0, 40 0 M0 0 C9.95 0, 19.9 0, 40 0 M40 0 C40 7.71, 40 15.41, 40 20 M40 0 C40 4.7, 40 9.41, 40 20 M40 20 C29.43 20, 18.86 20, 0 20 M40 20 C28.73 20, 17.46 20, 0 20 M0 20 C0 15.33, 0 10.65, 0 0 M0 20 C0 14.69, 0 9.39, 0 0"
+            stroke="#1e1e1e" stroke-width="2" fill="none"></path>
+    </g>
+</svg>

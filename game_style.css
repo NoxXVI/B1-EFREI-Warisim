@@ -103,7 +103,8 @@ input[type="checkbox"]:checked ~ .footer {
 }
 
 /* Animation pour le chevron */
-input[type="checkbox"]:checked + .toggle-footer img {
+input[type="checkbox"]:checked + .toggle-footer {
+    bottom: 30px;
   transition: transform 0.2s ease;
   transform: rotate(180deg);
 }
@@ -123,7 +124,7 @@ input[type="checkbox"]:checked + .toggle-footer img {
 }
 
 .entity-display {
-    display: block;
+    display: flex;
     border-radius: 20px;
     border-color: white;
     border: 2px solid;
@@ -163,25 +164,40 @@ input[type="checkbox"]:checked + .toggle-footer img {
 
 
 .scroll-content {
-    max-height: 150px; /* Fixe une hauteur spécifique pour la zone défilable */
-    overflow-y: auto; /* Active le scroll vertical uniquement */
+    max-height: 150px;  /* Fixe une hauteur spécifique pour la zone défilable */
+    overflow-y: auto;   /* Active le scroll vertical uniquement */
     overflow-x: hidden; /* Cache le scroll horizontal */
     padding-right: 10px; /* Ajoute de l'espace pour la barre de défilement */
     padding-top: 0px;
     box-sizing: border-box; /* Assure le respect des dimensions */
-  }
+}
 
+.scroll-content p {
+    line-height: 15px;
+}
+
+/* Style des liens dans la zone défilable */
 .scroll-content a {
     color: white;
     text-decoration: none;
-    border-radius: 5px;
-    border: 2px solid;
     padding: 5px;
+    display: inline-flex;  /* Permet à l'image et au texte de s'aligner horizontalement */
+    gap: 10px;  /* Ajoute un espace entre l'image et le texte */
+    align-items: center;  /* Aligne verticalement l'image et le texte */
 }
 
-
-.scroll-content  a:hover {
-    border-color: red;
+/* Hover sur le lien */
+.scroll-content a:hover {
     color: red;
-    line-height: 15px;
+}
+
+/* Style de l'image dans le lien */
+.scroll-content a img {
+    width: 32px;  /* Vous pouvez ajuster la taille de l'image */
+    height: 32px;
+}
+
+/* Améliore la mise en page pour éviter un overflow non désiré */
+.scroll-content a img {
+    vertical-align: middle; /* S'assure que l'image est alignée avec le texte */
 }
