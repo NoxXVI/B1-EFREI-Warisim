@@ -190,3 +190,15 @@ input[type="checkbox"]:checked + .toggle-footer {
   height: 32px;
   vertical-align: middle;
 }
+/* Normalement ça doit prendre la meme taille que la map */
+#couche-sprite {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.sprite {
+  position: absolute;
+  width: 64px;
+  height: 64px
+}
