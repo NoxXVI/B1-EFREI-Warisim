@@ -12,7 +12,7 @@
   grid-template-rows: repeat(20, 64px);
   position: relative;
   width: fit-content;
-  border: 4px solid black;
+  border: 4px dashed black;
 }
 
 .tile {
@@ -21,6 +21,7 @@
   background-size: cover; /* Adapte l'image à la taille de la case */
   background-position: center; /* Centre l'image */
   background-repeat: no-repeat;
+  border: 1.5px dashed black;
 }
 
 .factory {
@@ -156,16 +157,15 @@ input[type="checkbox"]:checked + .toggle-footer {
 }
 
 .description ul img {
-  width: 28px; 
+  width: 28px;
   height: 28px;
   vertical-align: middle;
 }
 
-
 .scroll-content {
   max-height: 100%;
-  overflow-y: auto; 
-  overflow-x: hidden; 
+  overflow-y: auto;
+  overflow-x: hidden;
   box-sizing: border-box;
   scrollbar-color: grey transparent;
 }
@@ -174,11 +174,10 @@ input[type="checkbox"]:checked + .toggle-footer {
   color: white;
   text-decoration: none;
   padding-right: 30px;
-  display: inline-flex; 
+  display: inline-flex;
   gap: 10px;
-  align-items: center; 
+  align-items: center;
   margin-bottom: 10px;
-
 }
 
 .scroll-content a:hover {
@@ -186,19 +185,38 @@ input[type="checkbox"]:checked + .toggle-footer {
 }
 
 .scroll-content a img {
-  width: 32px; 
+  width: 32px;
   height: 32px;
   vertical-align: middle;
 }
+
+/* ___________________Sprite______________________ */
 /* Normalement ça doit prendre la meme taille que la map */
 #couche-sprite {
   position: absolute;
   width: 100%;
   height: 100%;
+  top: 0;
 }
 
+/* .tank {
+  background-image: url("/rsc/sprites/entity/tank.svg");
+}
+
+.infantery {
+  background-image: url("/rsc/sprites/entity/infantery.svg");
+}
+
+.artillery {
+  background-image: url("/rsc/sprites/entity/artillery.svg");
+}
+.artillery {
+  background-image: url("/rsc/sprites/entity/car.svg");
+}
+
+*/
 .sprite {
   position: absolute;
   width: 64px;
-  height: 64px
+  height: 64px;
 }
