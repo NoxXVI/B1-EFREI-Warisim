@@ -17,14 +17,39 @@
 
 <body>
   <h1>Warisim : Advanced Tactics</h1>
+
   <label for="Gamemode"> Gamemode</label>
+
   <select name="Gamemode" id="gamemode-select">
     <option value="Versus">Versus</option>
   </select>
-  
-  <div>Game settings</div>
-  
-  <a href="/game.html">
+
+  <div class="menu-container">
+    <div id="joueur1" class="menu-section">
+      <h2>Player 1</h2>
+      <div class="menu-item">
+        <label for="option1">Option 1:</label>
+        <input type="checkbox" id="option1">
+      </div>
+      <div class="menu-item">
+        <label for="option2">Option 2:</label>
+        <input type="checkbox" id="option2">
+      </div>
+    </div>
+    <div id="joueur2" class="menu-section">
+      <h2>Player 2</h2>
+      <div class="menu-item">
+        <label for="option3">Option 3:</label>
+        <input type="checkbox" id="option3">
+      </div>
+      <div class="menu-item">
+        <label for="option4">Option 4:</label>
+        <input type="checkbox" id="option4">
+      </div>  
+    </div>  
+  </div>
+
+  <a href="game.html">
     <button>Start</button>
   </a>
 </body>
