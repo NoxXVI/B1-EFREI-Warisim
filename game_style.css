@@ -65,7 +65,6 @@
   height: 15rem;
   color: white;
   text-align: left;
-  line-height: 50px;
   transition: transform 0.3s ease;
 }
 
@@ -103,7 +102,7 @@ input[type="checkbox"]:checked ~ .footer {
   transform: translateY(100%);
 }
 
-/* Animation pour le chevron */
+/* Animation pour le bouton */
 input[type="checkbox"]:checked + .toggle-footer {
   bottom: 30px;
   transition: transform 0.2s ease;
@@ -112,9 +111,9 @@ input[type="checkbox"]:checked + .toggle-footer {
 
 .section_name {
   position: absolute;
-  top: -2px;
   pointer-events: none;
-  color: rgb(183, 182, 182)
+  color: rgb(183, 182, 182);
+  top: 10px;
 }
 
 #footer-container {
@@ -131,12 +130,12 @@ input[type="checkbox"]:checked + .toggle-footer {
   border: 2px solid white;
   background-color: #474747;
   margin-right: 10px;
-  padding: 20px;
+  padding: 15px;
   padding-top: 35px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+  box-sizing: content-box;
 }
 
-/* Classes spécifiques pour les ajustements */
 .entity-display {
   flex: content 1 auto;
 }
@@ -147,11 +146,19 @@ input[type="checkbox"]:checked + .toggle-footer {
 
 .options-list {
   flex: content 1 auto;
+  padding-right: 10px;
 }
 
 .description {
   flex: 1 1 auto;
   align-items: start;
+  line-height: normal;
+}
+
+.description ul img {
+  width: 28px; 
+  height: 28px;
+  vertical-align: middle;
 }
 
 
@@ -159,22 +166,19 @@ input[type="checkbox"]:checked + .toggle-footer {
   max-height: 100%;
   overflow-y: auto; 
   overflow-x: hidden; 
-  padding-right: 10px;
   box-sizing: border-box;
+  scrollbar-color: grey transparent;
 }
 
-.scroll-content p {
-  line-height: 1;
-}
-
-/* style des liens */
 .scroll-content a {
   color: white;
   text-decoration: none;
-  padding: 5px;
+  padding-right: 30px;
   display: inline-flex; 
   gap: 10px;
   align-items: center; 
+  margin-bottom: 10px;
+
 }
 
 .scroll-content a:hover {
