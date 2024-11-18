@@ -1,12 +1,17 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+/* ___________________Map______________________ */
+
 #map {
   display: grid;
-  grid-template-columns: repeat(30, 64px); /* 30 colonnes */
-  grid-template-rows: repeat(20, 64px); /* 20 lignes */
-  gap: 0; /* Aucun espace entre les cases */
+  grid-template-columns: repeat(30, 64px);
+  grid-template-rows: repeat(20, 64px);
   position: relative;
-  width: fit-content; /* Ajuste la taille du conteneur à la grille */
-  margin: 0 auto; /* Centrer la grille sur la page */
-  border: 2px solid #000; /* Ajout d'une bordure pour visualiser la grille */
+  width: fit-content;
+  border: 4px solid black;
 }
 
 .tile {
@@ -41,7 +46,7 @@
   background-color: blue;
 }
 
-/* Menu */
+/* ___________________Menu______________________ */
 
 .footer-wrapper {
   position: fixed;
@@ -56,29 +61,24 @@
   bottom: 0;
   left: 0;
   right: 0;
-  height: 25%;
+  height: 15rem;
   color: white;
   text-align: left;
   line-height: 50px;
   transition: transform 0.3s ease;
 }
 
-/* Le chevron pour contrôler */
+/*Bouton toggle footer*/
 .toggle-footer {
   display: flex;
   position: fixed;
-  bottom: 30%;
+  bottom: 17rem;
   right: 20px;
   background-color: #007bff;
-  color: white;
-  border: none;
   padding: 10px;
   border-radius: 50%;
   cursor: pointer;
-  font-size: 16px;
-  display: flex;
   align-items: center;
-  justify-content: center;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
@@ -104,15 +104,15 @@ input[type="checkbox"]:checked ~ .footer {
 
 /* Animation pour le chevron */
 input[type="checkbox"]:checked + .toggle-footer {
-    bottom: 30px;
+  bottom: 30px;
   transition: transform 0.2s ease;
   transform: rotate(180deg);
 }
 
 .section_name {
-    position: absolute;
-    top: -2px;
-    pointer-events: none;
+  position: absolute;
+  top: -2px;
+  pointer-events: none;
 }
 
 #city {
@@ -124,20 +124,7 @@ input[type="checkbox"]:checked + .toggle-footer {
 }
 
 .entity-display {
-    display: flex;
-    border-radius: 20px;
-    border-color: white;
-    border: 2px solid;
-    background-color: #474747;
-    flex: content 1 auto;
-    margin-right: 10px;
-    padding: 20px;
-    padding-top: 30px;
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-  }
-
-.shop {
-  display: block;
+  display: flex;
   border-radius: 20px;
   border-color: white;
   border: 2px solid;
@@ -149,7 +136,21 @@ input[type="checkbox"]:checked + .toggle-footer {
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
 }
 
+.shop {
+  display: flex;
+  border-radius: 20px;
+  border-color: white;
+  border: 2px solid;
+  background-color: #474747;
+  flex: content 1 auto;
+  margin-right: 10px;
+  padding: 20px;
+  padding-top: 35px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
 .shop-description {
+  display: flex;
   border-radius: 20px;
   border-color: white;
   border: 2px solid;
@@ -157,47 +158,39 @@ input[type="checkbox"]:checked + .toggle-footer {
   flex: 1 1 auto;
   margin-right: 10px;
   padding: 20px;
+  padding-top: 35px;
   align-items: start;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-  scroll-padding: 15px;
 }
 
-
 .scroll-content {
-    max-height: 150px;  /* Fixe une hauteur spécifique pour la zone défilable */
-    overflow-y: auto;   /* Active le scroll vertical uniquement */
-    overflow-x: hidden; /* Cache le scroll horizontal */
-    padding-right: 10px; /* Ajoute de l'espace pour la barre de défilement */
-    padding-top: 0px;
-    box-sizing: border-box; /* Assure le respect des dimensions */
+  max-height: 100%;
+  overflow-y: auto; 
+  overflow-x: hidden; 
+  padding-right: 10px;
+  box-sizing: border-box;
 }
 
 .scroll-content p {
-    line-height: 15px;
+  line-height: 15px;
 }
 
-/* Style des liens dans la zone défilable */
+/* style des liens */
 .scroll-content a {
-    color: white;
-    text-decoration: none;
-    padding: 5px;
-    display: inline-flex;  /* Permet à l'image et au texte de s'aligner horizontalement */
-    gap: 10px;  /* Ajoute un espace entre l'image et le texte */
-    align-items: center;  /* Aligne verticalement l'image et le texte */
+  color: white;
+  text-decoration: none;
+  padding: 5px;
+  display: inline-flex; 
+  gap: 10px;
+  align-items: center; 
 }
 
-/* Hover sur le lien */
 .scroll-content a:hover {
-    color: red;
+  color: red;
 }
 
-/* Style de l'image dans le lien */
 .scroll-content a img {
-    width: 32px;  /* Vous pouvez ajuster la taille de l'image */
-    height: 32px;
-}
-
-/* Améliore la mise en page pour éviter un overflow non désiré */
-.scroll-content a img {
-    vertical-align: middle; /* S'assure que l'image est alignée avec le texte */
+  width: 32px; 
+  height: 32px;
+  vertical-align: middle;
 }
