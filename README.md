@@ -1,9 +1,4 @@
 
-- [Case](Readme.md#case)
-- [Unités](Readme.md#unités)
-- [TO-DO](Readme.md#déscription-paramètres-et-to-do-list)
-
-
 # Description, paramètres et TO-DO List
 ## Map
 - Sprite 16x16
