@@ -1,6 +1,4 @@
-les classes
-flexbox entrainement
-
+# Description, paramètres et TO-DO List
 ## Map
 - Sprite 16x16
 - Map 20*30
@@ -12,41 +10,72 @@ flexbox entrainement
 4. Menu : flexbox
 
 ## Case
-- Usine
-- Ville
-- Rivière
-- Pont
-- Route 
+### Usine
+Produits des unités. Doit être capturé par un joueur.
+Son menu de footer contient:
+- Une section descriptif qui affiche l'icône de la case. Le joueur la detenant et l'unité en cours de production.
+- Le shop
+- description de l'unité selectionné dans le shop
+### Ville
+La ville est une case capturable fournissant de l'argent à la fin de chaque tour.
+Son footer contient une seule section qui affiche **l'icône de la case**, le **joueur la detenant** et quantité bonus par tour.
 
-## Sprite
-- Tank
-- Fantassin
-- Voiture
+### Rivière / eau
+Simple case bloquant la traversé. Une case de marche pour certaine unité pourrait être envisagé
+### Pont
+Case de marche passant sur de l'eau
+### Route
+Case de marche. Un bonus de déplacement pourrait être envisagé
+### Prairie
+Case de marche
+### QG
+Case objectif fait effet de ville. Capturable
 
-#### JavaScript
-Systeme de tours:
-    Interaction avec les unités et deplacement
-    Confirmation des deplacements / fin de tour
-    Changement du joueur actif
-    Compteur de tours
+## Unités
+### Tank
+Unité à prix élevé et forts dégats
+- Deplacements :
+- Prix : 
+### Fantassin
+Unité peu cher et transportable par voiture
+- Deplacements :
+- Prix : 
+### Voiture
+Unité peu cher à grand déplacement permettant de transporter 2 fantassin
+- Deplacements :
+- Prix : 
+### Artiellerie
+Unité de tir à distance a fort dégâts. Coute cher. Après un déplacement, met un tour avant de pouvoir attaquer.
+- Deplacements :
+- Prix : 
 
-Attaque:
-    Voir la portée des unités
-    Si une unité ennemie est dans la portée l'unité peut attaquer
-    Barre de vie a chaque unité
-    Chaque unité a une differente attaque et une differente portée
+_ _ _
+ 
+## JavaScript et TO-DO List
 
-Création d'unité:
-    Vérification de la possession des usines
-    déduction des ressources par rapport au coût de l'unité
+### Systeme de tours:
+- Interaction avec les unités et deplacement
+- Confirmation des deplacements / fin de tour
+- Changement du joueur actif
+- Compteur de tours
 
-Terrain:
-    Donné des avantages et des desavantages aux unités par rapport au terrain
+### Attaque:
+- Voir la portée des unités
+- Si une unité ennemie est dans la portée l'unité peut attaquer
+- Barre de vie a chaque unité
+- Chaque unité a une differente attaque et une differente portée
 
-Conditions de victoire:
-    Détruire le qg / les batiments / toute les unités
-    Affichage de d'un message de victoire
+### Création d'unité:
+- Vérification de la possession des usines
+- déduction des ressources par rapport au coût de l'unité
 
-Animation:
-    Montrer les déplacements, attaque, mort des unités
+### Terrain:
+- Donné des avantages et des desavantages aux unités par rapport au terrain
+
+### Conditions de victoire:
+- Détruire le qg / les batiments / toute les unités
+- Affichage de d'un message de victoire
+
+### Animation:
+- Montrer les déplacements, attaque, mort des unités
 
