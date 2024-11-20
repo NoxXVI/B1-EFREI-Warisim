@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Warisim: Advanced Tactics</title>
-    <link rel="icon" href="/rsc/sprites/entity/tank.svg" />
+    <link rel="icon" href="./rsc/sprites/entity/tank.svg" />
     <link rel="stylesheet" href="game_style.css" />
   </head>
   <body>
@@ -612,45 +612,47 @@
     </div>
 
     <div id="couche-sprite">
-      <img src="/rsc/sprites/entity/tank.svg" class="sprite" id="tank1" style="left: 100px; top: 150px;" />
-      <img src="/rsc/sprites/entity/infantery.svg" class="sprite" id="infantry1" style="left: 200px; top: 250px;" />
-    
+      <!-- Demo affichage des entités -->
+      <img
+        src="./rsc/sprites/entity/tank.svg"
+        class="sprite"
+        id="tank1"
+        style="left: 66px; top: 133px"
+      />
+      <img
+        src="./rsc/sprites/entity/infantery.svg"
+        class="sprite"
+        id="infantry1"
+        style="left: 195px; top: 260px"
+      />
     </div>
 
     <div class="footer-wrapper">
       <input type="checkbox" id="footer-toggle" />
       <label for="footer-toggle" class="toggle-footer">
-        <img src="/rsc/icons/chevron-down.svg" />
+        <img src="./rsc/icons/chevron-down.svg" />
       </label>
 
       <div class="footer" , id="footer-container">
         <div class="footer-section factory-display">
           <label for="" class="section_name">Factory</label>
-          <img src="/rsc/sprites/map/factory.svg" />
+          <img src="./rsc/sprites/map/factory.svg" />
         </div>
         <div class="footer-section options-list">
           <label class="section_name">Shop</label>
           <div class="scroll-content">
             <a href="#">
-              <img src="/rsc/sprites/entity/tank.svg" />
+              <img src="./rsc/sprites/entity/tank.svg" />
               Tank
             </a>
             <br />
             <a href="#">
-              <img
-                src="/rsc/sprites/entity/infantery.svg"
-              />
+              <img src="./rsc/sprites/entity/infantery.svg" />
               Infantery </a
             ><br />
+            <a href="#"><img src="./rsc/sprites/entity/car.svg" />Car</a><br />
             <a href="#"
-              ><img
-                src="/rsc/sprites/entity/car.svg"
-              />Car</a
-            ><br />
-            <a href="#"
-              ><img
-                src="/rsc/sprites/entity/artillery.svg"
-              />Artillery</a
+              ><img src="./rsc/sprites/entity/artillery.svg" />Artillery</a
             ><br />
           </div>
         </div>
@@ -670,14 +672,20 @@
               fermentum est dapibus ut.
             </p>
             <ul>
-               <li><img class="inline-image" src="/rsc/icons/sword.svg" />: 50</li>
-               <li><img class="inline-image" src="/rsc/icons/move-up-right.svg" />: 50</li>
-               <li><img class="inline-image" src="/rsc/icons/euro.svg" />: 5000</li>
+              <li>
+                <img class="inline-image" src="./rsc/icons/sword.svg" />: 50
+              </li>
+              <li>
+                <img class="inline-image" src="./rsc/icons/move-up-right.svg" />:
+                50
+              </li>
+              <li>
+                <img class="inline-image" src="./rsc/icons/euro.svg" />: 5000
+              </li>
             </ul>
           </div>
         </div>
       </div>
     </div>
-    
   </body>
 </html>
