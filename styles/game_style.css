@@ -26,11 +26,11 @@
 }
 
 .factory {
-  background-image: url("./rsc/sprites/map/factory.svg");
+  background-image: url("../assets/sprites/map/factory.svg");
 }
 
 .city {
-  background-image: url("./rsc/sprites/map/city.svg");
+  background-image: url("../assets/sprites/map/city.svg");
 }
 
 .grass {
@@ -201,18 +201,18 @@ input[type="checkbox"]:checked + .toggle-footer {
 }
 
 /* .tank {
-  background-image: url("/rsc/sprites/entity/tank.svg");
+  background-image: url("/assets/sprites/entity/tank.svg");
 }
 
 .infantery {
-  background-image: url("/rsc/sprites/entity/infantery.svg");
+  background-image: url("/assets/sprites/entity/infantery.svg");
 }
 
 .artillery {
-  background-image: url("/rsc/sprites/entity/artillery.svg");
+  background-image: url("/assets/sprites/entity/artillery.svg");
 }
 .artillery {
-  background-image: url("/rsc/sprites/entity/car.svg");
+  background-image: url("/assets/sprites/entity/car.svg");
 }
 
 */
