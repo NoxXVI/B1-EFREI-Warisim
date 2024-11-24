@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="game_style.css" />
+  </head>
+  <body>
+    
+    <div id="map">
+    </div>
+    <script src="js/map_creator.js" defer></script>
+    <div class="footer-wrapper">
+      <input type="checkbox" id="footer-toggle" />
+      <label for="footer-toggle" class="toggle-footer">
+        <img src="./rsc/icons/chevron-down.svg" />
+      </label>
+
+      <div class="footer" , id="footer-container">
+        <div class="footer-section options-list">
+          <label for="grass" class="tile grass">
+            <div class="icon"></div>
+            Grass
+          </label>
+          <input type="radio" name="tile" id="grass" value="grass">
+      
+          <label for="factory" class="tile factory">
+            <div class="icon"></div>
+            Factory
+          </label>
+          <input type="radio" name="tile" id="factory" value="factory">
+      
+          <label for="city" class="tile city">
+            <div class="icon"></div>
+            City
+          </label>
+          <input type="radio" name="tile" id="city" value="city">
+      
+          <label for="river" class="tile river">
+            <div class="icon"></div>
+            River
+          </label>
+          <input type="radio" name="tile" id="river" value="river">
+      
+          <label for="bridge" class="tile bridge">
+            <div class="icon"></div>
+            Bridge
+          </label>
+          <input type="radio" name="tile" id="bridge" value="bridge">
+      
+          <label for="road" class="tile road">
+            <div class="icon"></div>
+            Road
+          </label>
+          <input type="radio" name="tile" id="road" value="road" checked/>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

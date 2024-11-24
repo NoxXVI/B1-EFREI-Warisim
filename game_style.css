@@ -16,6 +16,7 @@
 }
 
 .tile {
+  display: block;
   width: 64px;
   height: 64px;
   background-size: cover; /* Adapte l'image à la taille de la case */
@@ -220,3 +221,11 @@ input[type="checkbox"]:checked + .toggle-footer {
   width: 64px;
   height: 64px;
 }
+#map-editor {
+  box-sizing: content-box;
+}
+
+#map-editor div:hover {
+  border: 2px solid red;
+}
+
