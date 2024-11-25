@@ -1,16 +1,24 @@
+[To-do](TO-DO.md)
 
-# Description, paramètres et TO-DO List
-## Map
+## Sommaire
+- [Info général](#map)
+- [Couche d'affichage](#différente-couche-du-jeu)
+- [Differente case](#cases)
+- [Unités](#unités)
+- [Comment ca se contrôle](#contrôle)
+
+# Info général
+### Map
 - Sprite 16x16
 - Map 20*30
 
-## Différente couche du jeu
+### Différente couche du jeu
 1. Carte
 2. Entité/sprite
 3. Overlay
 4. Menu : flexbox
 
-## Case
+# Cases
 ### Usine
 Produits des unités. Doit être capturé par un joueur.
 Son menu de footer contient:
@@ -32,7 +40,7 @@ Case de marche
 ### QG
 Case objectif fait effet de ville. Capturable
 
-## Unités
+# Unités
 ### Tank
 Unité à prix élevé et forts dégats
 - Deplacements :
@@ -51,32 +59,25 @@ Unité de tir à distance a fort dégâts. Coute cher. Après un déplacement, m
 - Prix : 
 
 _ _ _
- 
-## JavaScript et TO-DO List
 
-### Systeme de tours:
-- Interaction avec les unités et deplacement
-- Confirmation des deplacements / fin de tour
-- Changement du joueur actif
-- Compteur de tours
+## Contrôle
+### Navigation 
+- Click molette pour naviguer sur la map
+- Scroll pour zoom/dezoom
+- Clique gauche selection de l'entité
+- Menu d'action entité fermable via Echap
+### Menu
+- Selection de case ouvre le menu footer correspondant
+- Selection d'entité:
+ - affiche l'overlay de d'déplacement avec la couleur de team de l'entité.
+ - Affiche le menu d'action
+- slider de scroll en zoom.
 
-### Attaque:
-- Voir la portée des unités
-- Si une unité ennemie est dans la portée l'unité peut attaquer
-- Barre de vie a chaque unité
-- Chaque unité a une differente attaque et une differente portée
+### Gestion unité
+- Si choix unité mouvement
+ -> Ferme le menu d'action et permet de choisir la case où se déplacer
+ -> Une fois déplacer, réouvre un menu d'action
+- Si attaque, affiche overlay de range. Au survol d'un unité ennemie affiche les potentiels dégats dans un footer réduits.
+  
 
-### Création d'unité:
-- Vérification de la possession des usines
-- déduction des ressources par rapport au coût de l'unité
-
-### Terrain:
-- Donné des avantages et des desavantages aux unités par rapport au terrain
-
-### Conditions de victoire:
-- Détruire le qg / les batiments / toute les unités
-- Affichage de d'un message de victoire
-
-### Animation:
-- Montrer les déplacements, attaque, mort des unités
 
