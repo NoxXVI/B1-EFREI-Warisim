@@ -13,6 +13,7 @@
   position: relative;
   width: fit-content;
   border: 4px dashed black;
+  margin-bottom: 50px;
 }
 
 .tile {
@@ -51,65 +52,57 @@
 
 /* ___________________Menu______________________ */
 
-.footer-wrapper {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  transition: transform 0.3s ease;
-}
-
 .footer {
   position: fixed;
-  bottom: 0;
+  bottom: 62px;
   left: 0;
   right: 0;
-  height: 15rem;
   color: white;
   text-align: left;
-  transition: transform 0.3s ease;
+  transition: max-height 0.3s ease, visibility 0.3s ease, opacity 0.3s ease;
 }
 
-/*Bouton toggle footer*/
-.toggle-footer {
+/* Footer masqué par défaut */
+#footer-container {
   display: flex;
-  position: fixed;
-  bottom: 17rem;
-  right: 20px;
-  background-color: #007bff;
+  flex-direction: row;
+  max-height: 0;  /* Cacher par défaut */
+  overflow: hidden;  /* Empêcher le défilement */
+  visibility: hidden;  /* Cacher le footer */
+  opacity: 0;  /* Cacher visuellement */
+  transition: max-height 0.3s ease, visibility 0.3s ease, opacity 0.3s ease;
+}
+
+/* Affichage du footer quand la checkbox est cochée */
+input[type="checkbox"]:checked ~ #footer-container {
+  max-height: 30%;  /* Ajustez selon la taille du footer */
+  visibility: visible;
+  opacity: 1;
+}
+
+/* Animation pour le bouton de basculement du footer */
+.toggle-footer-button-label {
+  display: flex;
   padding: 10px;
   border-radius: 50%;
+  position: absolute;
+  right: 0;
   cursor: pointer;
   align-items: center;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
-  transition: transform 0.3s ease;
-}
-
-.toggle-footer svg {
-  width: 20px;
-  height: 20px;
-  fill: white;
-  transform: rotate(0deg);
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3); */
   transition: transform 0.3s ease;
 }
 
 input[type="checkbox"] {
-  transition: transform 0.2s ease;
   display: none;
 }
 
-/* Animation pour le footer */
-input[type="checkbox"]:checked ~ .footer {
-  transition: transform 0.2s ease;
-  transform: translateY(100%);
-}
-
-/* Animation pour le bouton */
-input[type="checkbox"]:checked + .toggle-footer {
-  bottom: 30px;
-  transition: transform 0.2s ease;
+/* Rotation de l'icône lorsque le footer est visible */
+#footer-toggle-button:checked + .toggle-footer-button-label {
   transform: rotate(180deg);
 }
+
+/* ___________________Footer sections______________________ */
 
 .section_name {
   position: absolute;
@@ -117,21 +110,12 @@ input[type="checkbox"]:checked + .toggle-footer {
   color: rgb(183, 182, 182);
   top: 10px;
 }
-
-#footer-container {
-  display: flex;
-  flex-direction: row;
-  padding-left: 20px;
-  padding-bottom: 10px;
-  overflow: auto;
-}
-
 .footer-section {
   display: flex;
-  border-radius: 20px;
+  /* border-radius: 20px; */
   border: 2px solid white;
   background-color: #474747;
-  margin-right: 10px;
+  /* margin-right: 10px; */
   padding: 15px;
   padding-top: 35px;
   box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
@@ -191,8 +175,51 @@ input[type="checkbox"]:checked + .toggle-footer {
   vertical-align: middle;
 }
 
+
+/* ___________________Bottom Bar______________________ */
+.info-bar {
+  position: fixed;
+  box-sizing: border-box;
+  bottom: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 10px;
+  width: 100%;
+  border: 2PX solid white;
+  background-color: #474747;
+  padding: 5px;
+  padding-left: 15PX;
+  color: white;
+  /* z-index: 999; Assurez-vous que la barre d'info est au-dessus du footer */
+}
+.info-bar h1 {
+  margin-right: 10px;
+}
+.info-bar h2{
+  padding-left: 5PX;
+  padding-right: 5px;
+  border-radius: 10px;
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
+}
+
+footer {
+  position: fixed;
+  bottom: 50px;
+  left: 0;
+  right: 0;
+  color: white;
+  text-align: left;
+  z-index: 998; /* Le footer est juste en dessous de la barre d'info */
+}
+.inline-image{
+  /* Je ne sais pas quoi mettre */
+  display: inline-block;
+  vertical-align: -2Px;
+}
+
 /* ___________________Sprite______________________ */
-/* Normalement ça doit prendre la meme taille que la map */
+
 #couche-sprite {
   position: absolute;
   width: 100%;
@@ -200,27 +227,12 @@ input[type="checkbox"]:checked + .toggle-footer {
   top: 0;
 }
 
-/* .tank {
-  background-image: url("/assets/sprites/entity/tank.svg");
-}
-
-.infantery {
-  background-image: url("/assets/sprites/entity/infantery.svg");
-}
-
-.artillery {
-  background-image: url("/assets/sprites/entity/artillery.svg");
-}
-.artillery {
-  background-image: url("/assets/sprites/entity/car.svg");
-}
-
-*/
 .sprite {
   position: absolute;
   width: 64px;
   height: 64px;
 }
+
 #map-editor {
   box-sizing: content-box;
 }
@@ -228,4 +240,3 @@ input[type="checkbox"]:checked + .toggle-footer {
 #map-editor div:hover {
   border: 2px solid red;
 }
-

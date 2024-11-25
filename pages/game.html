@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../styles/game_style.css" />
   </head>
   <body>
+    <script type="module" src="/js/game.js" defer></script>
     <div id="map">
       <div class="tile grass"></div>
       <div class="tile grass"></div>
@@ -626,66 +627,67 @@
         style="left: 195px; top: 260px"
       />
     </div>
-
-    <div class="footer-wrapper">
-      <input type="checkbox" id="footer-toggle" />
-      <label for="footer-toggle" class="toggle-footer">
-        <img src="../assets/icons/chevron-down.svg" />
+    <div class="info-bar">
+      <h1  id="player">Joueur 1</h1>
+      <h2 id="turn">Tour 1</h2>
+      <h2 id="money"><img src="/assets/icons/euro.svg" class = "inline-image"height="24" alt="">: 5000 </h2>
+      <input type="checkbox" id="footer-toggle-button" />
+      <label for="footer-toggle-button" class="toggle-footer-button-label">
+        <img src="../assets/icons/chevron-down.svg" alt="Toggle footer" />
       </label>
-
-      <div class="footer" , id="footer-container">
-        <div class="footer-section factory-display">
-          <label for="" class="section_name">Factory</label>
-          <img src="../assets/sprites/map/factory.svg" />
-        </div>
-        <div class="footer-section options-list">
-          <label class="section_name">Shop</label>
-          <div class="scroll-content">
-            <a href="#">
-              <img src="../assets/sprites/entity/tank.svg" />
-              Tank
-            </a>
-            <br />
-            <a href="#">
-              <img src="../assets/sprites/entity/infantery.svg" />
-              Infantery </a
-            ><br />
-            <a href="#"><img src="../assets/sprites/entity/car.svg" />Car</a><br />
-            <a href="#"
-              ><img src="../assets/sprites/entity/artillery.svg" />Artillery</a
-            ><br />
-          </div>
-        </div>
-        <div class="footer-section description">
-          <label class="section_name">Description</label>
-          <div class="scroll-content">
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac
-              nunc placerat, ultrices sem in, posuere neque. Curabitur euismod,
-              arcu rhoncus porttitor pulvinar, massa dui vehicula leo, a maximus
-              urna risus a eros. Suspendisse congue, lorem eget molestie
-              volutpat, est risus pretium neque, eget pharetra elit lacus at
-              lacus. Curabitur a ipsum libero. Aliquam eu nibh eget justo ornare
-              vehicula et sit amet nunc. Ut id fermentum metus. Integer eu dui
-              tincidunt, feugiat massa in, pulvinar leo. Ut ullamcorper ligula
-              eget sapien consequat semper. Quisque condimentum tellus urna, ac
-              fermentum est dapibus ut.
-            </p>
-            <ul>
-              <li>
-                <img class="inline-image" src="../assets/icons/sword.svg" />: 50
-              </li>
-              <li>
-                <img class="inline-image" src="../assets/icons/move-up-right.svg" />:
-                50
-              </li>
-              <li>
-                <img class="inline-image" src="../assets/icons/euro.svg" />: 5000
-              </li>
-            </ul>
-          </div>
+    </div>
+    
+    <div class="footer" id="footer-container">
+      <div class="footer-section factory-display">
+        <label for="" class="section_name">Factory</label>
+        <img src="../assets/sprites/map/factory.svg" alt="Factory" />
+      </div>
+      
+      <div class="footer-section options-list">
+        <label class="section_name">Shop</label>
+        <div class="scroll-content">
+          <a href="#">
+            <img src="../assets/sprites/entity/tank.svg" alt="Tank" />
+            Tank
+          </a>
+          <br />
+          <a href="#">
+            <img src="../assets/sprites/entity/infantery.svg" alt="Infantry" />
+            Infantry
+          </a>
+          <br />
+          <a href="#">
+            <img src="../assets/sprites/entity/car.svg" alt="Car" />
+            Car
+          </a>
+          <br />
+          <a href="#">
+            <img src="../assets/sprites/entity/artillery.svg" alt="Artillery" />
+            Artillery
+          </a>
+          <br />
         </div>
       </div>
-    </div>
+    
+      <div class="footer-section description">
+        <label class="section_name">Description</label>
+        <div class="scroll-content">
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam ac nunc placerat, ultrices sem in, posuere neque. Curabitur euismod, arcu rhoncus porttitor pulvinar, massa dui vehicula leo, a maximus urna risus a eros. Suspendisse congue, lorem eget molestie volutpat, est risus pretium neque, eget pharetra elit lacus at lacus. Curabitur a ipsum libero. Aliquam eu nibh eget justo ornare vehicula et sit amet nunc. Ut id fermentum metus. Integer eu dui tincidunt, feugiat massa in, pulvinar leo. Ut ullamcorper ligula eget sapien consequat semper. Quisque condimentum tellus urna, ac fermentum est dapibus ut.
+          </p>
+          <ul>
+            <li>
+              <img class="inline-image" src="../assets/icons/sword.svg" alt="Sword" />: 50
+            </li>
+            <li>
+              <img class="inline-image" src="../assets/icons/move-up-right.svg" alt="Move" />: 50
+            </li>
+            <li>
+              <img class="inline-image" src="../assets/icons/euro.svg" alt="Euro" />: 5000
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>    
   </body>
 </html>
