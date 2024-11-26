@@ -139,6 +139,7 @@ input[type="checkbox"] {
   flex: 1 1 auto;
   align-items: start;
   line-height: normal;
+  flex-direction: column;
 }
 
 .description ul img {
@@ -148,11 +149,13 @@ input[type="checkbox"] {
 }
 
 .scroll-content {
+  display: flex;
   max-height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
   box-sizing: border-box;
   scrollbar-color: grey transparent;
+  flex-direction: column;
 }
 
 .scroll-content a {
