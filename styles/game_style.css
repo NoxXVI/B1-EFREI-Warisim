@@ -17,13 +17,19 @@
 }
 
 .tile {
+  box-sizing: border-box;
   display: block;
   width: 64px;
   height: 64px;
   background-size: cover; /* Adapte l'image à la taille de la case */
   background-position: center; /* Centre l'image */
   background-repeat: no-repeat;
-  border: 1.5px dashed black;
+  border: 1px dashed black;
+}
+
+.tile:hover{
+  border: 4px solid red ;
+  mask-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5));;
 }
 
 .factory {
@@ -127,6 +133,10 @@ input[type="checkbox"] {
 }
 
 .factory-display {
+  display: flex;
+  flex-direction: row;
+  max-width: 30%;
+  gap: 15px;
   flex: content 1 auto;
 }
 
@@ -228,8 +238,6 @@ footer {
 
 #couche-sprite {
   position: absolute;
-  width: 100%;
-  height: 100%;
   top: 0;
 }
 

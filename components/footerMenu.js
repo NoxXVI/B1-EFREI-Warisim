@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 
 import {
   createFooter,
@@ -45,7 +45,7 @@ const testData = {
 
 /*___*/
 
-export function setNewFactory(enabled = true) {
+export function setNewFactory(enabled = true, element = "") {
   const footer = document.querySelector("#footer-container");
   footer.innerHTML = "";
 
@@ -55,33 +55,49 @@ export function setNewFactory(enabled = true) {
   factoryIMG.src = "../assets/sprites/map/factory.svg";
   factoryIMG.alt = "Factory";
   factoryDisplay.append(factoryIMG);
+
+  /*Values box*/
+  const valueBox = createScrollContent();
+  const l = document.createElement("label");
+  l.textContent = `Détenu par: ${"Joueur 1"}`;
+  const prodLabel = document.createElement("label");
+  prodLabel.textContent = "Production";
+  const prodIMG = document.createElement("img");
+  prodIMG.src = `../assets/sprites/entity/${"tank"}.svg`;
+  prodIMG.style.width = "50%";
+  valueBox.append(l);
+  valueBox.append(prodLabel);
+  valueBox.append(prodIMG);
+  factoryDisplay.append(valueBox);
+
   footer.append(factoryDisplay);
-  /*Shop section */
+
+  /*Shop section si n'est pas déjà utilisé*/
   if (enabled) {
-    const factoryShop = createFooterSection("Shop", "options-list")
+    const factoryShop = createFooterSection("Shop", "options-list");
     const factoryShopList = createScrollContent();
-    factoryShopList.append(ShopItem("car"))
-    factoryShopList.append(ShopItem("tank"))
-    factoryShopList.append(ShopItem("artillery"))
-    factoryShopList.append(ShopItem("infantery"))
-    factoryShop.append(factoryShopList)
-    footer.append(factoryShop)
+    factoryShopList.append(ShopItem("car"));
+    factoryShopList.append(ShopItem("tank"));
+    factoryShopList.append(ShopItem("artillery"));
+    factoryShopList.append(ShopItem("infantery"));
+    factoryShop.append(factoryShopList);
+    footer.append(factoryShop);
   }
+
+  /*Créer une description vide invisible*/
   const factoryShopDescription = createFooterSection(
     "Description",
     "description"
   );
   factoryShopDescription.style.visibility = "hidden";
 
-  footer.append(factoryShopDescription)
+  footer.append(factoryShopDescription);
 }
 
 function ShopItem(itemName) {
   const item = document.createElement("a");
   item.addEventListener("click", () => {
-    const sectionDescription = document.querySelector(
-      ".description"
-    );
+    const sectionDescription = document.querySelector(".description");
     sectionDescription.style.visibility = "visible";
     setShopItemDescription(itemName);
   });
@@ -90,8 +106,8 @@ function ShopItem(itemName) {
   icon.alt = itemName;
   item.append(icon);
   const name = testData[itemName]["name"];
-  item.append(name)
-  return item
+  item.append(name);
+  return item;
 }
 
 function setShopItemDescription(itemName) {
@@ -103,13 +119,12 @@ function setShopItemDescription(itemName) {
   label.innerText = testData[itemName]["name"];
   section.append(label);
 
-  const scroll = createScrollContent()
+  const scroll = createScrollContent();
 
   const description = document.createElement("p");
   description.innerText = testData[itemName]["description"];
   scroll.append(description);
 
-  
   const specsList = document.createElement("ul");
   specsList.innerHTML = ` <li>
               <img class="inline-image" src="../assets/icons/sword.svg" alt="Damage" />: ${testData[itemName]["damage"]}
@@ -124,10 +139,31 @@ function setShopItemDescription(itemName) {
               Life: ${testData[itemName]["life"]}
             </li>`;
 
-scroll.append(specsList)
-section.append(scroll);
+  scroll.append(specsList);
+  section.append(scroll);
 
-const button = document.createElement("button")
-button.textContent = "ACHETER"
-section.append(button)
+  const button = document.createElement("button");
+  button.textContent = "ACHETER";
+  section.append(button);
+}
+
+export function setNewCity(element=""){
+  const footer = document.querySelector("#footer-container");
+  footer.innerHTML = "";
+
+  /* City Display section*/
+  const cityDisplay = createFooterSection("Ville", "factory-display"); /*La même classe css que factory */
+  const cityIMG = document.createElement("img");
+  cityIMG.src = "../assets/sprites/map/city.svg";
+  cityIMG.alt = "City";
+  cityDisplay.append(cityIMG);
+
+  /*Values box*/
+  const valueBox = createScrollContent();
+  const l = document.createElement("label");
+  l.textContent = `Détenu par: ${"Joueur 1"}`;
+  valueBox.append(l);
+  cityDisplay.append(valueBox);
+
+  footer.append(cityDisplay);
 }
