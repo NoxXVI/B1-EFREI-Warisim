@@ -72,7 +72,7 @@ export function setNewFactory(enabled = true) {
     "description"
   );
   factoryShopDescription.style.visibility = "hidden";
-  
+
   footer.append(factoryShopDescription)
 }
 
@@ -125,5 +125,9 @@ function setShopItemDescription(itemName) {
             </li>`;
 
 scroll.append(specsList)
-  section.append(scroll);
+section.append(scroll);
+
+const button = document.createElement("button")
+button.textContent = "ACHETER"
+section.append(button)
 }

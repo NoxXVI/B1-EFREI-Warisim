@@ -136,12 +136,15 @@ input[type="checkbox"] {
 }
 
 .description {
+  display: flex;
   flex: 1 1 auto;
   align-items: start;
   line-height: normal;
   flex-direction: column;
 }
-
+.description button {
+  align-self: flex-end;
+}
 .description ul img {
   width: 28px;
   height: 28px;

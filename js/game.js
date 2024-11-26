@@ -3,4 +3,4 @@ import {initMenu} from "../components/gameMenu.js"
 import {setNewFactory} from "../components/footerMenu.js"
 
 initMenu()
-setNewFactory(true)
+setNewFactory()
