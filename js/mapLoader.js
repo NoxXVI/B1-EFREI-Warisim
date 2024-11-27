@@ -1,6 +1,6 @@
 import { setNewCity, setNewFactory } from "../components/footerMenu.js";
 
-map = [
+const map = [
   [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0,

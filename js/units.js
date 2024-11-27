@@ -29,3 +29,12 @@ export function rangeTiles(rangeList, range, startTileCoords) {
 
   return rangeList;
 }
+
+
+class units {
+  constructor(tileCoords, type){
+    this.tileCoords = tileCoords
+    this.type = type
+    this.life = 
+  }
+}
