@@ -31,6 +31,10 @@ export function rangeTiles(rangeList, range, startTileCoords) {
   return rangeList;
 }
 
+// export class factory {
+//   constructor
+// }
+
 export class Units {
   constructor(tileCoords, type) {
     this.tileCoords = tileCoords;
@@ -41,6 +45,7 @@ export class Units {
     this.range = entityData[type]["range"];
     this.damage = entityData[type]["damage"];
     this.addTileDisplay()
+    this.overlay = false
   }
   unitListener(){
     this.showRange()
@@ -49,7 +54,11 @@ export class Units {
   showRange() {
     for (let crds of rangeTiles([], this.range, this.tileCoords)) {
       const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
-      tile.style.backgroundColor = "red";
+      if (tile.style.maskImage === "none"){
+        tile.style.maskImage = "linear-gradient(rgba(255, 0, 0, 0.3), rgba(255, 0, 0, 0.3))";
+      }else{
+        const allTilesStyle = document.querySelector(".tile")
+      }
     }
   }
   addTileDisplay() {
