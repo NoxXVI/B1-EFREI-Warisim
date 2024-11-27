@@ -3,6 +3,7 @@ import { initMenu } from "../components/gameMenu.js";
 import { setNewFactory, setNewCity } from "../components/footerMenu.js";
 import { initMap } from "./mapLoader.js";
 import { rangeTiles } from "./units.js";
+
 initMap();
 initMenu();
 
