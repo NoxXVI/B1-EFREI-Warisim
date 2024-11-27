@@ -1,3 +1,4 @@
+import { entityData, entitytIdCounter } from "../data/gameData.js";
 export function rangeTiles(rangeList, range, startTileCoords) {
   const startTile = document.getElementById(
     `${startTileCoords[0]}-${startTileCoords[1]}`
@@ -30,11 +31,39 @@ export function rangeTiles(rangeList, range, startTileCoords) {
   return rangeList;
 }
 
+export class Units {
+  constructor(tileCoords, type) {
+    this.tileCoords = tileCoords;
+    this.type = type;
+    entitytIdCounter.value += 1;
+    this.id = `${type}${entitytIdCounter.value}`;
+    this.life = entityData[type]["life"];
+    this.range = entityData[type]["range"];
+    this.damage = entityData[type]["damage"];
+    this.addTileDisplay()
+  }
+  unitListener(){
+    this.showRange()
+  }
 
-class units {
-  constructor(tileCoords, type){
-    this.tileCoords = tileCoords
-    this.type = type
-    this.life = 
+  showRange() {
+    for (let crds of rangeTiles([], this.range, this.tileCoords)) {
+      const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
+      tile.style.backgroundColor = "red";
+    }
+  }
+  addTileDisplay() {
+    const tile = document.getElementById(`${this.tileCoords[0]}-${this.tileCoords[1]}`)
+    const img = document.createElement("img");
+    img.className = "sprite";
+    img.src = `../assets/sprites/entity/${this.type}.svg`;
+    img.id = this.id;
+    img.addEventListener("click",()=>{
+      this.unitListener()
+    })
+    tile.append(img);
+  }
+  saluer() {
+    console.log(`Range: ${this.range}`);
   }
 }
