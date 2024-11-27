@@ -14,3 +14,12 @@ export function changeMoney(playername) {
     const player = infoBar.querySelector("#money")
     player.innerHTML = `<img src="/assets/icons/euro.svg" class = "inline-image"height="24" alt="">: ${player}`
 }
+
+let compteur = 1;
+let finirTour = document.getElementById("finir-tour");
+let affichage = document.getElementById("turn");
+
+finirTour.addEventListener("click", () => {
+    compteur++;
+    affichage.textContent = `Tour ${compteur}`
+});
