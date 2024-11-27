@@ -1,6 +1,7 @@
 import { setNewCity, setNewFactory } from "../components/footerMenu.js";
+import { menuClickIcone } from "../components/gameMenu.js";
 
-map = [
+const map = [
   [
     0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
     0, 0, 0, 0, 0,
@@ -115,12 +116,22 @@ export function initMap() {
   for (let cityTile of cityTiles) {
     cityTile.addEventListener("click", () => {
       setNewCity();
+      menuClickIcone();
+      const footerToggleButton = document.getElementById(
+        "footer-toggle-button"
+      );
+      footerToggleButton.checked = true;
     });
   }
 
   for (let factoryTile of factoryTiles) {
     factoryTile.addEventListener("click", () => {
       setNewFactory();
+      menuClickIcone();
+      const footerToggleButton = document.getElementById(
+        "footer-toggle-button"
+      );
+      footerToggleButton.checked = true;
     });
   }
 }
