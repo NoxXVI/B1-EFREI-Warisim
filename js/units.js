@@ -31,10 +31,6 @@ export function rangeTiles(rangeList, range, startTileCoords) {
   return rangeList;
 }
 
-// export class factory {
-//   constructor
-// }
-
 export class Units {
   constructor(tileCoords, type) {
     this.tileCoords = tileCoords;

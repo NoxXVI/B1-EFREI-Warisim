@@ -1,88 +1,7 @@
 import { setNewCity, setNewFactory } from "../components/footerMenu.js";
 import { menuClickIcone } from "../components/gameMenu.js";
+import { defaultMap} from "../data/gameData.js";
 
-const map = [
-  [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 0, 5, 0, 0, 4, 0, 0, 0, 1, 0, 0, 0, 0, 0, 4, 0, 0, 5, 0, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 4, 3, 5, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5, 3,
-    4, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 4, 3, 5, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 5, 3,
-    4, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3, 2, 3, 3, 3, 3, 3, 3, 3, 3, 3, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 0, 5, 0, 0, 4, 0, 0, 0, 0, 1, 0, 0, 0, 0, 4, 0, 0, 5, 0, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0,
-  ],
-  [
-    0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0,
-    0, 0, 0, 0, 0,
-  ],
-];
 
 const mapDOM = document.querySelector("#map");
 // Table des types de tuiles
@@ -95,18 +14,48 @@ const tileTypes = {
   5: "factory",
 };
 
-function createTile(type, id) {
+function createNewTile(type, id) {
   const tile = document.createElement("div");
   tile.className = `tile ${type}`;
   tile.id = id;
-  mapDOM.append(tile);
+  return tile
+}
+
+// Because why not. 
+function createTile(type, id) {
+  mapDOM.append(createNewTile(type, id));
+}
+
+
+export class factory {
+  constructor(id){
+    this.id = id
+    this.tile = createNewTile("factory", id)
+    this.factoryListener()
+    mapDOM.append(this.tile)
+  }
+  factoryListener(){
+    this.tile.addEventListener("click", () => {
+      setNewFactory();
+      menuClickIcone();
+
+      const footerToggleButton = document.getElementById(
+        "footer-toggle-button"
+      );
+      footerToggleButton.checked = true;
+    });
+  }
 }
 
 // Fonction pour ajouter une tuile avec le type sélectionné
 export function initMap() {
-  for (let line in map) {
-    for (let row in map[line]) {
-      createTile(tileTypes[map[line][row]], `${row}-${line}`);
+  for (let line in defaultMap.map) {
+    for (let row in defaultMap.map[line]) {
+      if (tileTypes[defaultMap.map[line][row]] === "factory"){
+        new factory(`${row}-${line}`)
+      }else {
+        createTile(tileTypes[defaultMap.map[line][row]], `${row}-${line}`);
+      }
     }
   }
 
@@ -125,13 +74,6 @@ export function initMap() {
   }
 
   for (let factoryTile of factoryTiles) {
-    factoryTile.addEventListener("click", () => {
-      setNewFactory();
-      menuClickIcone();
-      const footerToggleButton = document.getElementById(
-        "footer-toggle-button"
-      );
-      footerToggleButton.checked = true;
-    });
+    
   }
 }
