@@ -1,4 +1,9 @@
-export let entitytIdCounter = {value : 0}
+export let entitytIdCounter = { value: 0 };
+
+export let gameData = { turn: 1, playerTurn: "player1" };
+
+export let entityList = []
+export let buildingList = []
 
 export const entityData = {
   tank: {
@@ -36,6 +41,15 @@ export const entityData = {
     life: 8000,
     cost: 500,
     range: 5,
+  },
+};
+
+export let playerData = {
+  player1: {
+    gold: 5000,
+  },
+  player2: {
+    gold: 5000,
   },
 };
 

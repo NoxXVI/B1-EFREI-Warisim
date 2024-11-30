@@ -1,4 +1,4 @@
-
+import { buildingList, entityList, gameData } from "../data/gameData.js"
 
 const infoBar = document.querySelector(".info-bar")
 
@@ -15,11 +15,13 @@ export function changeMoney(playername) {
     player.innerHTML = `<img src="/assets/icons/euro.svg" class = "inline-image"height="24" alt="">: ${player}`
 }
 
-let compteur = 1;
-let finirTour = document.getElementById("finir-tour");
-let affichage = document.getElementById("turn");
+const  finirTour = document.getElementById("finir-tour");
+const affichage = document.getElementById("turn");
 
 finirTour.addEventListener("click", () => {
-    compteur++;
-    affichage.textContent = `Tour ${compteur}`
+    gameData.turn++;
+    affichage.textContent = `Tour ${gameData.turn}`
+    for (let building of buildingList){
+        building.update()
+    }
 });

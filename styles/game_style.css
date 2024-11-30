@@ -191,6 +191,18 @@ input[type="checkbox"] {
   vertical-align: middle;
 }
 
+/* ___________________Action Menu_____________________ */
+.actionMenu {
+  position: absolute;
+  display: flex;
+  background-color: #474747;
+  flex-direction: column;
+  padding: 15px;
+  border-radius: 15px;
+  border: 2px solid white;
+  gap: 15px
+}
+
 
 /* ___________________Bottom Bar______________________ */
 .info-bar {

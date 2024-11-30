@@ -1,6 +1,5 @@
 import { changePlayer } from "../components/infoBar.js";
 import { initMenu } from "../components/gameMenu.js";
-import { setNewFactory, setNewCity } from "../components/footerMenu.js";
 import { initMap } from "./mapLoader.js";
 import { rangeTiles, Units } from "./units.js";
 
@@ -27,8 +26,8 @@ console.log(rangeTiles([], 5, [6,5]))
 //     tile.style.backgroundColor = "red"
 // }
 
-const tank = new Units([6,5], "tank")
-tank.addTileDisplay()
-new Units([10,9], "infantery")
-new Units([4,2], "tank")
-new Units([24,10], "artillery")
+// const tank = new Units([6,5], "tank")
+// tank.addTileDisplay()
+// new Units([10,9], "infantery")
+// new Units([4,2], "tank")
+// new Units([24,10], "artillery")
