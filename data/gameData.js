@@ -3,7 +3,7 @@ export let entitytIdCounter = { value: 0 };
 export let gameData = { turn: 1, playerTurn: "player1" };
 
 export let entityList = []
-export let buildingList = []
+export let buildingList = {}
 
 export const entityData = {
   tank: {

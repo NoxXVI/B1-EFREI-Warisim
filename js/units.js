@@ -1,4 +1,8 @@
-import { entityData, entitytIdCounter } from "../data/gameData.js";
+import {
+  entityData,
+  entitytIdCounter,
+  buildingList,
+} from "../data/gameData.js";
 
 export function rangeTiles(rangeList, range, startTileCoords) {
   const startTile = document.getElementById(
@@ -31,33 +35,8 @@ export function rangeTiles(rangeList, range, startTileCoords) {
   return rangeList;
 }
 
-
-function actionMenu(pos, actions){
-  const aMenu = document.createElement("div")
-  aMenu.className = "actionMenu"
-  for (let action of actions) {
-    aMenu.append(action)
-  }
-  aMenu.style.top = `${pos[0]}px`
-  aMenu.style.left = `${pos[1]+pos[2]}px`
-
-   const handleKeyDown = (event) => {
-    if (event.key === "Escape") {
-      aMenu.remove();
-      document.removeEventListener("keydown", handleKeyDown); // Nettoyer l'écouteur
-    }
-  };
-  document.addEventListener("keydown", handleKeyDown);
-  document.body.append(aMenu)
-}
-
-function removeActionMenu(){
-  const aMenu = document.getElementById("actionMenu")
-  aMenu.remove
-}
-
 export class Units {
-  constructor(tileCoords, type) {
+  constructor(tileCoords, type, owner) {
     this.tileCoords = tileCoords;
     this.type = type;
     entitytIdCounter.value += 1;
@@ -65,61 +44,136 @@ export class Units {
     this.life = entityData[type]["life"];
     this.range = entityData[type]["range"];
     this.damage = entityData[type]["damage"];
-    this.addTileDisplay()
-    this.overlay = false
-    this.canMove = true
-    this.canAttack = true
+    this.addTileDisplay();
+    this.overlay = false;
+    this.canMove = true;
+    this.canAttack = true;
+    this.owner = owner;
   }
-  thisTile(){
-    return document.getElementById(`${this.tileCoords[0]}-${this.tileCoords[1]}`)
+  thisTile() {
+    return document.getElementById(
+      `${this.tileCoords[0]}-${this.tileCoords[1]}`
+    );
   }
-  unitListener(event){
-    this.showRange()
+  unitListener(event) {
+    this.showRange();
 
-    const tile = this.thisTile()
+    const tile = this.thisTile();
     const rect = tile.getBoundingClientRect();
-    const top = rect.top + window.scrollY; 
+    const top = rect.top + window.scrollY;
     const left = rect.left + window.scrollX;
-    const width = rect.width
+    const width = rect.width;
+    if (this.actionMenuButtons().length !== 0){
+      this.actionMenu([top, left, width], this.actionMenuButtons());
+    }
+  }
+  closeRangeDisplay(){
+    for (let crds of rangeTiles([], this.range, this.tileCoords)) {
+      const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
+      tile.removeAttribute("style")
+    }
+  }
+  canCapture() {
+    if (this.thisTile().classList.contains("factory")) {
+      return true;
+    }
+  }
+  actionMenu(pos, actions) {
+    const aMenu = document.createElement("div");
+    aMenu.className = "actionMenu";
+    for (let action of actions) {
+      aMenu.append(action);
+    }
+    aMenu.style.top = `${pos[0]}px`;
+    aMenu.style.left = `${pos[1] + pos[2]}px`;
+  
+    this.handleKeyDown = (event) => {
+      if (event.key === "Escape") {
+        aMenu.remove();
+        this.closeRangeDisplay()
+        document.removeEventListener("keydown", this.handleKeyDown); // Nettoyer l'écouteur
+      }
+    };
+    document.addEventListener("keydown", this.handleKeyDown);
+    document.body.append(aMenu);
+  }
+  removeActionMenu() {
+    const aMenu = document.getElementById("actionMenu");
+    aMenu.removeEventListener("keydown", this.handleKeyDown);
+    aMenu.remove();
+  }
+  movementButton() {
+    const b = document.createElement("button");
+    b.textContent = "Move";
 
-    actionMenu([top, left, width],this.actionMenuButtons())
-  }
-  canCapture(){
-    if (this.thisTile().classList.contains("factory")){
-      return true
+    const ogRange = rangeTiles([], this.range, this.tileCoords);
+    const listeners = []; // Stocke les références aux écouteurs pour les supprimer plus tard
+
+    for (let tile of ogRange) {
+        const selectedTile = document.getElementById(`${tile[0]}-${tile[1]}`);
+
+        // Créer une fonction pour l'événement click
+        const handleClick = () => {
+            // Identifier la tuile source et la destination
+            const sourceTile = document.getElementById(
+                `${this.tileCoords[0]}-${this.tileCoords[1]}`
+            );
+            console.log(tile);
+            this.tileCoords = tile;
+            this.addTileDisplay();
+            sourceTile.innerHTML = "";
+
+            // Une fois l'événement traité, supprimer l'écouteur
+            selectedTile.removeEventListener("click", handleClick);
+            this.canMove = false;  // Désactive le mouvement
+            this.removeActionMenu();    // Supprimer le menu d'action
+        };
+
+        // Ajouter l'écouteur
+        selectedTile.addEventListener("click", handleClick);
+
+        // Enregistrer l'écouteur pour pouvoir le supprimer plus tard
+        listeners.push({
+            element: selectedTile,
+            event: "click",
+            handler: handleClick,
+        });
     }
+
+    return b;
+}
+
+  captureButton() {
+    const b = document.createElement("button");
+    b.textContent = "Capture";
+    b.addEventListener("click", () => {
+      buildingList[`${this.tileCoords[0]}-${this.tileCoords[1]}`].capture();
+    });
+    return b;
   }
-  movementButton(){
-    const b = document.createElement("button")
-    b.textContent = "Move"
-    return b
+  attackButton() {
+    const b = document.createElement("button");
+    b.textContent = "Attack";
+    return b;
   }
-  captureButton(){
-    const b = document.createElement("button")
-    b.textContent = "Capture"
-    return b
-  }
-  attackButton(){
-    const b = document.createElement("button")
-    b.textContent = "Attack"
-    return b
-  }
-  actionMenuButtons(){
-    let blist = []
-    if (this.canAttack){
-      blist.push(this.attackButton())
+  actionMenuButtons() {
+    let blist = [];
+    if (this.canAttack) {
+      blist.push(this.attackButton());
     }
-    if (this.canMove){
-      blist.push(this.movementButton())
+    if (this.canMove) {
+      blist.push(this.movementButton());
     }
-    if (this.canCapture()){
-      blist.push(this.captureButton())
+    if (this.canCapture()) {
+      blist.push(this.captureButton());
     }
-    return blist
+    return blist;
   }
 
   showRange() {
-    console.log(`Range length: ${rangeTiles([], this.range, this.tileCoords).length}`)
+    console.log(
+      `Range length: ${rangeTiles([], this.range, this.tileCoords).length}`
+    );
     for (let crds of rangeTiles([], this.range, this.tileCoords)) {
       const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
       tile.style.backgroundColor = "red";
@@ -127,14 +181,16 @@ export class Units {
   }
 
   addTileDisplay() {
-    const tile = document.getElementById(`${this.tileCoords[0]}-${this.tileCoords[1]}`)
+    const tile = document.getElementById(
+      `${this.tileCoords[0]}-${this.tileCoords[1]}`
+    );
     const img = document.createElement("img");
     img.className = "sprite";
     img.src = `../assets/sprites/entity/${this.type}.svg`;
     img.id = this.id;
-    img.addEventListener("click",(event)=>{
-      this.unitListener(event)
-    })
+    img.addEventListener("click", (event) => {
+      this.unitListener(event);
+    });
     tile.append(img);
   }
   saluer() {

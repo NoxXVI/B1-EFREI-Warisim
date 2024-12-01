@@ -21,7 +21,7 @@ const affichage = document.getElementById("turn");
 finirTour.addEventListener("click", () => {
     gameData.turn++;
     affichage.textContent = `Tour ${gameData.turn}`
-    for (let building of buildingList){
+    for (let building of Object.values(buildingList)){
         building.update()
     }
 });

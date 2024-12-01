@@ -54,6 +54,12 @@ export class city {
       footerToggleButton.checked = true;
     });
   }
+  update() {
+    console.log("yoooyoyoyo")
+  }
+  capture(user){
+    this.owner = user
+  }
   setNewCity(){
     const footer = document.querySelector("#footer-container");
     footer.innerHTML = "";
@@ -97,7 +103,8 @@ export class factory {
     });
   }
   capture(user){
-    console.log("capture en cours")
+    console.log("capture")
+    this.owner = user
   }
   setNewFactory() {
     const footer = document.querySelector("#footer-container");
@@ -227,7 +234,7 @@ export class factory {
   }
   finishProduction() {
     const tc = this.id.split("-")
-    const unit = new Units([tc[0],tc[1]], this.production)
+    const unit = new Units([tc[0],tc[1]], this.production, this.owner)
     entityList.push(unit)
     this.tile.append(unit)
     this.removeProduction()
@@ -247,11 +254,11 @@ export function initMap() {
     for (let row in defaultMap.map[line]) {
       if (tileTypes[defaultMap.map[line][row]] === "factory") {
         const f = new factory(`${row}-${line}`, "player1");
-        buildingList.push(f)
+        buildingList[`${row}-${line}`] = f
 
       } else if (tileTypes[defaultMap.map[line][row]] === "city") {
         const c = new city(`${row}-${line}`, "player1");
-        buildingList.push(c)
+        buildingList[`${row}-${line}`] = c
       } else {
         createTile(tileTypes[defaultMap.map[line][row]], `${row}-${line}`);
       }
