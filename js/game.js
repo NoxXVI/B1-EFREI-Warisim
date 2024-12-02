@@ -1,5 +1,5 @@
-import { changePlayer } from "../components/infoBar.js";
-import { initMenu } from "../components/gameMenu.js";
+import { changePlayer } from "./infoBar.js";
+import { initMenu } from "./gameMenu.js";
 import { initMap } from "./mapLoader.js";
 import { rangeTiles, Units } from "./units.js";
 

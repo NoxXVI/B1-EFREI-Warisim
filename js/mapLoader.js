@@ -1,4 +1,4 @@
-import { menuClickIcone } from "../components/gameMenu.js";
+import { menuClickIcone } from "./gameMenu.js";
 import {
   buildingList,
   defaultMap,
@@ -10,7 +10,7 @@ import {
 import {
   createFooterSection,
   createScrollContent,
-} from "../components/footer.js";
+} from "./footer.js";
 import { Units } from "./units.js";
 
 const mapDOM = document.querySelector("#map");
@@ -55,7 +55,7 @@ export class city {
     });
   }
   update() {
-    console.log("yoooyoyoyo")
+    console.log("Mise à jour de l'usine")
   }
   capture(user){
     this.owner = user
@@ -209,7 +209,6 @@ export class factory {
       if (playerData[this.owner].gold >= entityData[itemName].cost) {
         playerData[this.owner].gold -= entityData[itemName].cost;
         this.addProduction(itemName);
-        console.log("Une production");
       }
     });
     return button;

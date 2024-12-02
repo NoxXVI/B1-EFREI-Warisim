@@ -19,7 +19,6 @@ export function rangeTiles(rangeList, range, startTileCoords) {
   if (x < 0 || y < 0) {
     return;
   }
-
   // Comment comparer des Arrays d'après chatgpt
   if (rangeList.some((coords) => coords[0] === x && coords[1] === y)) {
     return;
@@ -50,6 +49,7 @@ export class Units {
     this.canAttack = true;
     this.owner = owner;
   }
+
   thisTile() {
     return document.getElementById(
       `${this.tileCoords[0]}-${this.tileCoords[1]}`
@@ -63,21 +63,45 @@ export class Units {
     const top = rect.top + window.scrollY;
     const left = rect.left + window.scrollX;
     const width = rect.width;
-    if (this.actionMenuButtons().length !== 0){
+    if (this.actionMenuButtons().length !== 0) {
       this.actionMenu([top, left, width], this.actionMenuButtons());
     }
   }
-  closeRangeDisplay(){
+  hideRange() {
+    console.log(this.tileCoords);
     for (let crds of rangeTiles([], this.range, this.tileCoords)) {
       const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
-      tile.removeAttribute("style")
+      tile.removeAttribute("style");
     }
   }
-  canCapture() {
-    if (this.thisTile().classList.contains("factory")) {
-      return true;
+  showRange() {
+    console.log(
+      `Range length: ${rangeTiles([], this.range, this.tileCoords).length}`
+    );
+    for (let crds of rangeTiles([], this.range, this.tileCoords)) {
+      const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
+      tile.style.backgroundColor = "red";
     }
   }
+
+  attackRange(){
+    return rangeTiles([], 2, this.tileCoords)
+  }
+
+  showAttackRange(){
+    this.hideRange()
+    for (let crds of this.attackRange()) {
+      const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
+      tile.style.backgroundColor = "red";
+    }
+  }
+  // hideAttackRange(){
+  //   for (let crds of this.attackRange()) {
+  //     const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
+  //     tile.removeAttribute("style");
+  //   }
+  // }
+
   actionMenu(pos, actions) {
     const aMenu = document.createElement("div");
     aMenu.className = "actionMenu";
@@ -86,63 +110,81 @@ export class Units {
     }
     aMenu.style.top = `${pos[0]}px`;
     aMenu.style.left = `${pos[1] + pos[2]}px`;
-  
+
     this.handleKeyDown = (event) => {
       if (event.key === "Escape") {
-        aMenu.remove();
-        this.closeRangeDisplay()
-        document.removeEventListener("keydown", this.handleKeyDown); // Nettoyer l'écouteur
+        this.hideRange();
+        this.removeActionMenu(); // Nettoyer l'écouteur
       }
     };
     document.addEventListener("keydown", this.handleKeyDown);
     document.body.append(aMenu);
   }
   removeActionMenu() {
-    const aMenu = document.getElementById("actionMenu");
-    aMenu.removeEventListener("keydown", this.handleKeyDown);
-    aMenu.remove();
+    const aMenu = document.querySelector(".actionMenu");
+    if (aMenu) {
+      document.removeEventListener("keydown", this.handleKeyDown);
+      aMenu.remove();
+    }
   }
   movementButton() {
     const b = document.createElement("button");
     b.textContent = "Move";
+    b.addEventListener("click", this.movementHandler.bind(this));
 
+    return b;
+  }
+  movementHandler() {
+    console.log(`Hnadler ${this.tileCoords}`);
     const ogRange = rangeTiles([], this.range, this.tileCoords);
     const listeners = []; // Stocke les références aux écouteurs pour les supprimer plus tard
 
+    // Ajoute des Event listener pour capturer la case sélectionnée
     for (let tile of ogRange) {
-        const selectedTile = document.getElementById(`${tile[0]}-${tile[1]}`);
+      const selectedTile = document.getElementById(`${tile[0]}-${tile[1]}`);
+      const handleClick = () => {
+        const sourceTile = document.getElementById(
+          `${this.tileCoords[0]}-${this.tileCoords[1]}`
+        );
+        console.log(tile);
+        this.tileCoords = tile;
+        this.addTileDisplay();
+        sourceTile.innerHTML = "";
 
-        // Créer une fonction pour l'événement click
-        const handleClick = () => {
-            // Identifier la tuile source et la destination
-            const sourceTile = document.getElementById(
-                `${this.tileCoords[0]}-${this.tileCoords[1]}`
-            );
-            console.log(tile);
-            this.tileCoords = tile;
-            this.addTileDisplay();
-            sourceTile.innerHTML = "";
+        console.log(`Moving to ${tile}`);
 
-            // Une fois l'événement traité, supprimer l'écouteur
-            selectedTile.removeEventListener("click", handleClick);
-            this.canMove = false;  // Désactive le mouvement
-            this.removeActionMenu();    // Supprimer le menu d'action
-        };
-
-        // Ajouter l'écouteur
-        selectedTile.addEventListener("click", handleClick);
-
-        // Enregistrer l'écouteur pour pouvoir le supprimer plus tard
-        listeners.push({
-            element: selectedTile,
-            event: "click",
-            handler: handleClick,
+        // Une fois l'événement traité, supprimer l'écouteur
+        selectedTile.removeEventListener("click", handleClick);
+        // Supprimer tous les écouteurs enregistrés dans listeners
+        listeners.forEach((listener) => {
+          listener.element.removeEventListener(
+            listener.event,
+            listener.handler
+          );
         });
+        this.canMove = false; // Désactive le mouvement
+        this.removeActionMenu(); // Supprimer le menu d'action
+        this.addTileDisplay();
+        this.hideRange()
+      };
+
+      // Ajouter l'écouteur
+      selectedTile.addEventListener("click", handleClick);
+
+      // Enregistrer l'écouteur pour pouvoir le supprimer plus tard
+      listeners.push({
+        element: selectedTile,
+        event: "click",
+        handler: handleClick,
+      });
     }
+  }
 
-    return b;
-}
-
+  canCapture() {
+    if (this.thisTile().classList.contains("factory")) {
+      return true;
+    }
+  }
   captureButton() {
     const b = document.createElement("button");
     b.textContent = "Capture";
@@ -154,6 +196,8 @@ export class Units {
   attackButton() {
     const b = document.createElement("button");
     b.textContent = "Attack";
+    b.addEventListener("click", this.showAttackRange.bind(this))
+    
     return b;
   }
   actionMenuButtons() {
@@ -168,16 +212,6 @@ export class Units {
       blist.push(this.captureButton());
     }
     return blist;
-  }
-
-  showRange() {
-    console.log(
-      `Range length: ${rangeTiles([], this.range, this.tileCoords).length}`
-    );
-    for (let crds of rangeTiles([], this.range, this.tileCoords)) {
-      const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
-      tile.style.backgroundColor = "red";
-    }
   }
 
   addTileDisplay() {
