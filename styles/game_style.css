@@ -39,6 +39,9 @@
 .city {
   background-image: url("../assets/sprites/map/city.svg");
 }
+.qg {
+  background-image: url("../assets/sprites/map/qg.svg");
+}
 
 .grass {
   background-color: #7cfc00;

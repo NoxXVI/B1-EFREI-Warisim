@@ -1,5 +1,32 @@
 [To-do](TO-DO.md)
 
+# Le JEU
+Ce jeu est inspiré de Advanced wars.
+## Comment ca se joue ?
+
+> Pour l'instant, le jeu n'est pas terminé.  
+Ce jeu est un tour par tour.  
+
+Un tour =  
+- Joueur 1 joue  
+- Joueur 2 joue  
+
+### Durant un tour, un joueur peut :  
+- Bouger ses unités  
+- Capturer des bâtiments avec ses unités  
+- Acheter des unités dans ses différentes usines possédées  
+
+### Au tout début :  
+Les joueurs n'ont que leurs QG (la tuile octogonale), qui se comportent comme des usines.  
+
+### Comment ça se contrôle ?  
+- Il faut cliquer deux fois sur la case du bâtiment pour afficher son menu.  
+- Un sous-menu s'affiche pour les usines et les QG si le bâtiment appartient au joueur actif.  
+- Les unités achetées apparaissent au tour suivant.  
+
+
+_ _ _ _
+# Ancien README
 ## Sommaire
 - [Info général](#map)
 - [Couche d'affichage](#différente-couche-du-jeu)

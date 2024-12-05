@@ -1,4 +1,5 @@
 import { menuClickIcone } from "./gameMenu.js";
+import {} from "./turn.js"
 import {
   buildingList,
   defaultMap,
@@ -14,7 +15,6 @@ import {
 import { Units } from "./units.js";
 
 const mapDOM = document.querySelector("#map");
-// Table des types de tuiles
 const tileTypes = {
   0: "grass",
   1: "river",
@@ -22,6 +22,8 @@ const tileTypes = {
   3: "road",
   4: "city",
   5: "factory",
+  6:"qg",
+  7:"qg"
 };
 
 function createNewTile(type, id) {
@@ -55,7 +57,9 @@ export class city {
     });
   }
   update() {
-    console.log("Mise à jour de l'usine")
+    if (this.owner){
+      playerData[this.owner].gold += 1000
+    }
   }
   capture(user){
     this.owner = user
@@ -83,13 +87,15 @@ export class city {
 
 }
 export class factory {
-  constructor(id, owner = null) {
-    this.id = id;
-    this.tile = createNewTile("factory", id);
-    this.owner = owner;
-    this.production = null;
-    this.factoryListener();
-    mapDOM.append(this.tile);
+  constructor(id, owner = null, override=false) {
+    if (!override){
+      this.id = id;
+      this.tile = createNewTile("factory", id);
+      this.owner = owner;
+      this.production = null;
+      this.factoryListener();
+      mapDOM.append(this.tile);
+    }
   }
   factoryListener() {
     this.tile.addEventListener("click", () => {
@@ -115,6 +121,9 @@ export class factory {
     const factoryIMG = document.createElement("img");
     factoryIMG.src = "../assets/sprites/map/factory.svg";
     factoryIMG.alt = "Factory";
+    if (this.production){
+      this.addProduction()
+    }
     factoryDisplay.append(factoryIMG);
 
     /*Values box*/
@@ -132,7 +141,7 @@ export class factory {
     footer.append(factoryDisplay);
 
     /*Shop section si n'est pas déjà utilisé*/
-    if (this.production === null || this.owner === gameData.playerTurn) {
+    if (this.production === null && this.owner === gameData.playerTurn) {
       const factoryShop = createFooterSection("Shop", "options-list");
       const factoryShopList = createScrollContent();
       for (let type of Object.keys(entityData)) {
@@ -209,6 +218,7 @@ export class factory {
       if (playerData[this.owner].gold >= entityData[itemName].cost) {
         playerData[this.owner].gold -= entityData[itemName].cost;
         this.addProduction(itemName);
+        this.setNewFactory()
       }
     });
     return button;
@@ -234,16 +244,73 @@ export class factory {
   finishProduction() {
     const tc = this.id.split("-")
     const unit = new Units([tc[0],tc[1]], this.production, this.owner)
-    entityList.push(unit)
+    entityList[this.id] = unit
     this.tile.append(unit)
     this.removeProduction()
 
   }
   update() {
     if (this.production !== null) {
-      console.log("Nouvelle unité")
       this.finishProduction()
     }
+  }
+}
+
+class qg extends factory {
+  constructor(id, owner) {
+    super(id, owner, true)
+    this.id = id;
+    this.tile = createNewTile("qg", id);
+    this.owner = owner;
+    this.production = null;
+    this.factoryListener();
+    mapDOM.append(this.tile);
+  }
+
+  setNewFactory() {
+    const footer = document.querySelector("#footer-container");
+    footer.innerHTML = "";
+
+    /* Factory Display section*/
+    const factoryDisplay = createFooterSection("QG", "factory-display");
+    const factoryIMG = document.createElement("img");
+    factoryIMG.src = "../assets/sprites/map/qg.svg";
+    factoryIMG.alt = "QG";
+    factoryDisplay.append(factoryIMG);
+
+    /*Values box*/
+    this.valueBox = createScrollContent();
+    if (this.owner !== null) {
+      const l = document.createElement("label");
+      l.textContent = `Détenu par: ${this.owner}`;
+      this.valueBox.append(l);
+      if (this.production !== null) {
+        this.addProduction(this.production);
+      }
+      factoryDisplay.append(this.valueBox);
+    }
+
+    footer.append(factoryDisplay);
+
+    /*Shop section si n'est pas déjà utilisé*/
+    if (this.production === null && this.owner === gameData.playerTurn) {
+      const factoryShop = createFooterSection("Shop", "options-list");
+      const factoryShopList = createScrollContent();
+      for (let type of Object.keys(entityData)) {
+        factoryShopList.append(this.ShopItem(type));
+      }
+      factoryShop.append(factoryShopList);
+      footer.append(factoryShop);
+    }
+
+    /*Créer une description vide invisible*/
+    const factoryShopDescription = createFooterSection(
+      "Description",
+      "description"
+    );
+    factoryShopDescription.style.visibility = "hidden";
+
+    footer.append(factoryShopDescription);
   }
 }
 
@@ -252,11 +319,17 @@ export function initMap() {
   for (let line in defaultMap.map) {
     for (let row in defaultMap.map[line]) {
       if (tileTypes[defaultMap.map[line][row]] === "factory") {
-        const f = new factory(`${row}-${line}`, "player1");
+        const f = new factory(`${row}-${line}`, null);
         buildingList[`${row}-${line}`] = f
 
       } else if (tileTypes[defaultMap.map[line][row]] === "city") {
-        const c = new city(`${row}-${line}`, "player1");
+        const c = new city(`${row}-${line}`, null);
+        buildingList[`${row}-${line}`] = c
+      } else if (defaultMap.map[line][row] === 6) {
+        const c = new qg(`${row}-${line}`, "player1");
+        buildingList[`${row}-${line}`] = c
+      } else if (defaultMap.map[line][row] === 7) {
+        const c = new qg(`${row}-${line}`, "player2");
         buildingList[`${row}-${line}`] = c
       } else {
         createTile(tileTypes[defaultMap.map[line][row]], `${row}-${line}`);

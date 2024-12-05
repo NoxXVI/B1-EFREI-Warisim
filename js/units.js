@@ -2,34 +2,47 @@ import {
   entityData,
   entitytIdCounter,
   buildingList,
+  gameData,
+  defaultMap,
+  entityList,
 } from "../data/gameData.js";
+import { createScrollContent, createFooterSection } from "./footer.js";
 
-export function rangeTiles(rangeList, range, startTileCoords) {
-  const startTile = document.getElementById(
-    `${startTileCoords[0]}-${startTileCoords[1]}`
-  );
-  const [x, y] = startTileCoords;
+export function rangeTiles(rangeList, range, startTileCoords, start = false) {
+  let [x, y] = startTileCoords;
+  x = parseInt(x);
+  y = parseInt(y);
+  const maxX = defaultMap.map[0].length - 1;
+  const maxY = defaultMap.map.length - 1;
+
+  if (x < 0 || y < 0 || x > maxX || y > maxY) {
+    return;
+  }
+
+  const startTile = document.getElementById(`${x}-${y}`);
 
   if (!startTile || startTile.classList.contains("river")) {
     return;
   }
-  if (range === 0) {
+  if (!startTile.innerHTML && start) {
     return;
   }
-  if (x < 0 || y < 0) {
-    return;
-  }
-  // Comment comparer des Arrays d'après chatgpt
+
+  // Merci chatgpt
   if (rangeList.some((coords) => coords[0] === x && coords[1] === y)) {
+    return;
+  }
+
+  if (range === 0) {
     return;
   }
 
   rangeList.push([x, y]);
 
   rangeTiles(rangeList, range - 1, [x + 1, y]); // Droite
-  rangeTiles(rangeList, range - 1, [x, y + 1]); // Bas
-  rangeTiles(rangeList, range - 1, [x, y - 1]); // Haut
   rangeTiles(rangeList, range - 1, [x - 1, y]); // Gauche
+  rangeTiles(rangeList, range - 1, [x, y - 1]); // Haut
+  rangeTiles(rangeList, range - 1, [x, y + 1]); // Bas
 
   return rangeList;
 }
@@ -46,11 +59,15 @@ export class Units {
     this.addTileDisplay();
     this.overlay = false;
     this.canMove = true;
-    this.canAttack = true;
+    this.hasAttacked = true;
+    this.hasCaptured = false
     this.owner = owner;
   }
 
-  thisTile() {
+  thisTile(tile=null) {
+    if (tile){
+      return document.getElementById(tile);
+    }
     return document.getElementById(
       `${this.tileCoords[0]}-${this.tileCoords[1]}`
     );
@@ -64,61 +81,99 @@ export class Units {
     const left = rect.left + window.scrollX;
     const width = rect.width;
     if (this.actionMenuButtons().length !== 0) {
-      this.actionMenu([top, left, width], this.actionMenuButtons());
+      this.actionMenu([top, left, width]);
     }
   }
+  displayInfo() {
+    const footer = document.querySelector("#footer-container");
+    footer.innerHTML = "";
+
+    /* City Display section*/
+    const entityDisplay = createFooterSection(
+      this.type,
+      "factory-display"
+    ); /*La même classe css que factory */
+    const cityIMG = document.createElement("img");
+    cityIMG.src = `../assets/sprites/entity/${this.type}.svg`;
+    cityIMG.alt = this.type;
+    entityDisplay.append(cityIMG);
+
+    /*Values box*/
+    const valueBox = createScrollContent();
+    const l = document.createElement("label");
+    const lifeBar = document.createElement("progress");
+    const lifeLabel = document.createElement("label");
+    lifeBar.value = this.life;
+    lifeBar.max = entityData[this.type]["life"];
+
+    lifeLabel.textContent = `${this.life} / ${entityData[this.type]["life"]}`;
+    l.textContent = `Détenu par: ${this.owner}`;
+    valueBox.append(l);
+    valueBox.append(lifeBar);
+    valueBox.append(lifeLabel);
+
+    entityDisplay.append(valueBox);
+    footer.append(entityDisplay);
+  }
+
   hideRange() {
     console.log(this.tileCoords);
-    for (let crds of rangeTiles([], this.range, this.tileCoords)) {
+    for (let crds of rangeTiles([], this.range, this.tileCoords, true)) {
       const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
       tile.removeAttribute("style");
     }
   }
   showRange() {
     console.log(
-      `Range length: ${rangeTiles([], this.range, this.tileCoords).length}`
+      `Range length: ${
+        rangeTiles([], this.range, this.tileCoords, true).length
+      }`
     );
-    for (let crds of rangeTiles([], this.range, this.tileCoords)) {
+    for (let crds of rangeTiles([], this.range, this.tileCoords, true)) {
       const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
       tile.style.backgroundColor = "red";
     }
   }
 
-  attackRange(){
-    return rangeTiles([], 2, this.tileCoords)
+  attackRange() {
+    return rangeTiles([], 2, this.tileCoords, true);
   }
 
-  showAttackRange(){
-    this.hideRange()
+  showAttackRange() {
+    this.hideRange();
     for (let crds of this.attackRange()) {
       const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
       tile.style.backgroundColor = "red";
     }
   }
-  // hideAttackRange(){
-  //   for (let crds of this.attackRange()) {
-  //     const tile = document.getElementById(`${crds[0]}-${crds[1]}`);
-  //     tile.removeAttribute("style");
-  //   }
-  // }
-
-  actionMenu(pos, actions) {
-    const aMenu = document.createElement("div");
-    aMenu.className = "actionMenu";
-    for (let action of actions) {
-      aMenu.append(action);
+  canAttack(tile){
+    if (entityList[`${tile[0]}-${tile[1]}`].owner !== this.owner){
+      return true
     }
-    aMenu.style.top = `${pos[0]}px`;
-    aMenu.style.left = `${pos[1] + pos[2]}px`;
+    return false
+  }
 
-    this.handleKeyDown = (event) => {
-      if (event.key === "Escape") {
-        this.hideRange();
-        this.removeActionMenu(); // Nettoyer l'écouteur
+  actionMenu(pos) {
+    this.removeActionMenu();
+    const actions = this.actionMenuButtons();
+    if (this.owner === gameData.playerTurn) {
+      const aMenu = document.createElement("div");
+      aMenu.className = "actionMenu";
+      for (let action of actions) {
+        aMenu.append(action);
       }
-    };
-    document.addEventListener("keydown", this.handleKeyDown);
-    document.body.append(aMenu);
+      aMenu.style.top = `${pos[0]}px`;
+      aMenu.style.left = `${pos[1] + pos[2] + 10}px`;
+
+      this.handleKeyDown = (event) => {
+        if (event.key === "Escape") {
+          this.hideRange();
+          this.removeActionMenu();
+        }
+      };
+      document.addEventListener("keydown", this.handleKeyDown);
+      document.body.append(aMenu);
+    }
   }
   removeActionMenu() {
     const aMenu = document.querySelector(".actionMenu");
@@ -136,42 +191,35 @@ export class Units {
   }
   movementHandler() {
     console.log(`Hnadler ${this.tileCoords}`);
-    const ogRange = rangeTiles([], this.range, this.tileCoords);
-    const listeners = []; // Stocke les références aux écouteurs pour les supprimer plus tard
+    const ogRange = rangeTiles([], this.range, this.tileCoords, true);
+    const listeners = [];
 
-    // Ajoute des Event listener pour capturer la case sélectionnée
     for (let tile of ogRange) {
       const selectedTile = document.getElementById(`${tile[0]}-${tile[1]}`);
       const handleClick = () => {
         const sourceTile = document.getElementById(
           `${this.tileCoords[0]}-${this.tileCoords[1]}`
         );
+        this.hideRange();
         console.log(tile);
         this.tileCoords = tile;
         this.addTileDisplay();
         sourceTile.innerHTML = "";
 
-        console.log(`Moving to ${tile}`);
-
-        // Une fois l'événement traité, supprimer l'écouteur
         selectedTile.removeEventListener("click", handleClick);
-        // Supprimer tous les écouteurs enregistrés dans listeners
         listeners.forEach((listener) => {
           listener.element.removeEventListener(
             listener.event,
             listener.handler
           );
         });
-        this.canMove = false; // Désactive le mouvement
-        this.removeActionMenu(); // Supprimer le menu d'action
+        this.canMove = false;
+        this.removeActionMenu();
         this.addTileDisplay();
-        this.hideRange()
       };
 
-      // Ajouter l'écouteur
       selectedTile.addEventListener("click", handleClick);
 
-      // Enregistrer l'écouteur pour pouvoir le supprimer plus tard
       listeners.push({
         element: selectedTile,
         event: "click",
@@ -180,8 +228,19 @@ export class Units {
     }
   }
 
+  update() {
+    this;
+    this.canMove = true;
+    this.hasAttacked = true;
+    this.hideRange();
+  }
+
   canCapture() {
-    if (this.thisTile().classList.contains("factory")) {
+    const tile = this.thisTile()
+    if (
+      tile.classList.contains("factory") &&
+      buildingList[`${this.tileCoords[0]}-${this.tileCoords[1]}`].owner !== this.owner && !this.hasCaptured
+    ) {
       return true;
     }
   }
@@ -189,20 +248,65 @@ export class Units {
     const b = document.createElement("button");
     b.textContent = "Capture";
     b.addEventListener("click", () => {
-      buildingList[`${this.tileCoords[0]}-${this.tileCoords[1]}`].capture();
+      buildingList[`${this.tileCoords[0]}-${this.tileCoords[1]}`].capture(this.owner);
+      this.removeActionMenu()
     });
     return b;
   }
+  takeDamage(damage){
+    if (this.life < damage){
+      this.thisTile().innerHTML = ""
+      delete entityList[`${this.tileCoords[0]}-${this.tileCoords[1]}`]
+    }
+    this.life -= damage
+  }
+  
+  attackHandler(){
+    console.log(`Hnadler ${this.tileCoords}`);
+    const ogRange = this;this.attackRange();
+    const listeners = [];
+    this.attackRange()
+    for (let tile of ogRange) {
+      const selectedTile = document.getElementById(`${tile[0]}-${tile[1]}`);
+      const handleClick = () => {
+        
+        entityList[`${tile[0]}-${tile[1]}`].takeDamage(this.this.damage);
+
+        this.hideRange();
+        this.addTileDisplay();
+
+        selectedTile.removeEventListener("click", handleClick);
+        listeners.forEach((listener) => {
+          listener.element.removeEventListener(
+            listener.event,
+            listener.handler
+          );
+        });
+        this.canAttack = false;
+        this.removeActionMenu();
+        this.addTileDisplay();
+      };
+
+      selectedTile.addEventListener("click", handleClick);
+
+      listeners.push({
+        element: selectedTile,
+        event: "click",
+        handler: handleClick,
+      });
+    }
+  }
+
   attackButton() {
     const b = document.createElement("button");
     b.textContent = "Attack";
-    b.addEventListener("click", this.showAttackRange.bind(this))
-    
+    b.addEventListener("click", this.showAttackRange.bind(this));
+
     return b;
   }
   actionMenuButtons() {
     let blist = [];
-    if (this.canAttack) {
+    if (!this.hasAttacked) {
       blist.push(this.attackButton());
     }
     if (this.canMove) {
@@ -218,16 +322,31 @@ export class Units {
     const tile = document.getElementById(
       `${this.tileCoords[0]}-${this.tileCoords[1]}`
     );
+    if (!tile) {
+      console.error(`Tile not found at coordinates: ${this.tileCoords}`);
+      return;
+    }
+
     const img = document.createElement("img");
     img.className = "sprite";
     img.src = `../assets/sprites/entity/${this.type}.svg`;
     img.id = this.id;
+
     img.addEventListener("click", (event) => {
       this.unitListener(event);
     });
+
+    img.addEventListener("mouseenter", () => {
+      this.displayInfo();
+    });
+
+    img.addEventListener("mouseleave", () => {
+      const footer = document.getElementById("footer-container");
+      if (footer) {
+        footer.innerHTML = "";
+      }
+    });
+
     tile.append(img);
-  }
-  saluer() {
-    console.log(`Range: ${this.range}`);
   }
 }

@@ -1,8 +1,9 @@
 export let entitytIdCounter = { value: 0 };
 
-export let gameData = { turn: 1, playerTurn: "player1" };
+export let gameData = { turn: 1, playerTurn: "player1", id_p: 0};
 
-export let entityList = []
+export const players = ["player1", "player2"]
+export let entityList = {}
 export let buildingList = {}
 
 export const entityData = {
@@ -46,9 +47,11 @@ export const entityData = {
 
 export let playerData = {
   player1: {
+    name : "Joueur 1",
     gold: 5000,
   },
   player2: {
+    name : "Joueur 2",
     gold: 5000,
   },
 };
@@ -88,8 +91,8 @@ export const defaultMap = {
       4, 0, 0, 0, 0,
     ],
     [
-      0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
-      0, 0, 0, 0, 0,
+      0, 0, 0, 7, 3, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,
+      6, 0, 0, 0, 0,
     ],
     [
       0, 0, 0, 0, 3, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3,

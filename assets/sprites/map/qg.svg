@@ -1,0 +1,78 @@
+<svg version="1.1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 420" width="420" height="420">
+    <!-- svg-source:excalidraw -->
+
+    <defs>
+        <style class="style-fonts">
+
+        </style>
+
+    </defs>
+    <rect x="0" y="0" width="420" height="420" fill="#ffffff"></rect>
+    <g stroke-linecap="round" transform="translate(10 10) rotate(0 200 200)">
+        <path d="M0 0 L400 0 L400 400 L0 400" stroke="none" stroke-width="0" fill="#7cfc00"></path>
+        <path
+            d="M0 0 C127.76 0, 255.52 0, 400 0 M0 0 C144.63 0, 289.26 0, 400 0 M400 0 C400 128.53, 400 257.07, 400 400 M400 0 C400 126.99, 400 253.97, 400 400 M400 400 C277.06 400, 154.12 400, 0 400 M400 400 C262.71 400, 125.42 400, 0 400 M0 400 C0 290.46, 0 180.91, 0 0 M0 400 C0 246.64, 0 93.27, 0 0"
+            stroke="#7cfc00" stroke-width="1" fill="none"></path>
+    </g>
+    <g stroke-linecap="round">
+        <g transform="translate(10 110) rotate(0 0 100)">
+            <path d="M0 0 C0 49.14, 0 98.27, 0 200 M0 0 C0 48.41, 0 96.82, 0 200" stroke="#7cfc00"
+                stroke-width="1" fill="none"></path>
+        </g>
+    </g>
+    <mask></mask>
+    <g stroke-linecap="round">
+        <g transform="translate(10 110) rotate(0 0 100)">
+            <path d="M0 0 C0 57.05, 0 114.1, 0 200 M0 0 C0 41.67, 0 83.33, 0 200" stroke="#1e1e1e"
+                stroke-width="1" fill="none"></path>
+        </g>
+    </g>
+    <mask></mask>
+    <g stroke-linecap="round" transform="translate(10 110) rotate(0 200 100)">
+        <path d="M0 0 L400 0 L400 200 L0 200" stroke="none" stroke-width="0" fill="#1e1e1e"></path>
+        <path
+            d="M0 0 C146.9 0, 293.79 0, 400 0 M0 0 C136.92 0, 273.84 0, 400 0 M400 0 C400 74.72, 400 149.44, 400 200 M400 0 C400 75.98, 400 151.97, 400 200 M400 200 C291.1 200, 182.19 200, 0 200 M400 200 C285.73 200, 171.46 200, 0 200 M0 200 C0 133.95, 0 67.89, 0 0 M0 200 C0 154.24, 0 108.47, 0 0"
+            stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+    </g>
+    <g stroke-linecap="round" transform="translate(110 10) rotate(0 100 200)">
+        <path d="M0 0 L200 0 L200 400 L0 400" stroke="none" stroke-width="0" fill="#1e1e1e"></path>
+        <path
+            d="M0 0 C59.39 0, 118.79 0, 200 0 M0 0 C63.41 0, 126.82 0, 200 0 M200 0 C200 108.31, 200 216.61, 200 400 M200 0 C200 116.44, 200 232.89, 200 400 M200 400 C151.52 400, 103.04 400, 0 400 M200 400 C152.57 400, 105.15 400, 0 400 M0 400 C0 267.34, 0 134.67, 0 0 M0 400 C0 300.69, 0 201.38, 0 0"
+            stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+    </g>
+    <g stroke-linecap="round" transform="translate(10 10) rotate(0 100 100)">
+        <path d="M101 0 L200 101 L101 200 L0 101" stroke="none" stroke-width="0" fill="#1e1e1e"
+            fill-rule="evenodd"></path>
+        <path
+            d="M101 0 C135.26 34.95, 169.52 69.9, 200 101 M101 0 C127.27 26.8, 153.54 53.6, 200 101 M200 101 C179.07 121.93, 158.13 142.87, 101 200 M200 101 C174.73 126.27, 149.45 151.55, 101 200 M101 200 C73.44 172.99, 45.89 145.98, 0 101 M101 200 C70.36 169.96, 39.71 139.93, 0 101 M0 101 C27.58 73.42, 55.16 45.84, 101 0 M0 101 C36.76 64.24, 73.53 27.47, 101 0"
+            stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+    </g>
+    <g stroke-linecap="round" transform="translate(210 10) rotate(0 100 100)">
+        <path d="M101 0 L200 101 L101 200 L0 101" stroke="none" stroke-width="0" fill="#1e1e1e"
+            fill-rule="evenodd"></path>
+        <path
+            d="M101 0 C134.92 34.61, 168.84 69.21, 200 101 M101 0 C126.33 25.85, 151.67 51.69, 200 101 M200 101 C168.68 132.32, 137.37 163.63, 101 200 M200 101 C163.35 137.65, 126.7 174.3, 101 200 M101 200 C79.81 179.23, 58.62 158.46, 0 101 M101 200 C62.37 162.13, 23.73 124.26, 0 101 M0 101 C30.77 70.23, 61.54 39.46, 101 0 M0 101 C38.73 62.27, 77.46 23.54, 101 0"
+            stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+    </g>
+    <g stroke-linecap="round" transform="translate(210 210) rotate(0 100 100)">
+        <path d="M101 0 L200 101 L101 200 L0 101" stroke="none" stroke-width="0" fill="#1e1e1e"
+            fill-rule="evenodd"></path>
+        <path
+            d="M101 0 C136.91 36.63, 172.82 73.27, 200 101 M101 0 C128.81 28.37, 156.62 56.75, 200 101 M200 101 C164.02 136.98, 128.04 172.96, 101 200 M200 101 C168.98 132.02, 137.97 163.03, 101 200 M101 200 C63.46 163.21, 25.93 126.41, 0 101 M101 200 C68.87 168.51, 36.74 137.01, 0 101 M0 101 C30.58 70.42, 61.17 39.83, 101 0 M0 101 C24.36 76.64, 48.73 52.27, 101 0"
+            stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+    </g>
+    <g stroke-linecap="round" transform="translate(10 210) rotate(0 100 100)">
+        <path d="M101 0 L200 101 L101 200 L0 101" stroke="none" stroke-width="0" fill="#1e1e1e"
+            fill-rule="evenodd"></path>
+        <path
+            d="M101 0 C123.35 22.81, 145.71 45.61, 200 101 M101 0 C129.6 29.18, 158.2 58.36, 200 101 M200 101 C168.94 132.06, 137.88 163.12, 101 200 M200 101 C167.3 133.7, 134.59 166.41, 101 200 M101 200 C71.81 171.39, 42.63 142.79, 0 101 M101 200 C70.33 169.94, 39.66 139.88, 0 101 M0 101 C29.81 71.19, 59.62 41.38, 101 0 M0 101 C27.3 73.7, 54.59 46.41, 101 0"
+            stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+    </g>
+    <g stroke-linecap="round" transform="translate(110 110) rotate(0 100 100)">
+        <path d="M101 0 L200 101 L101 200 L0 101" stroke="none" stroke-width="0" fill="#e9ecef"
+            fill-rule="evenodd"></path>
+        <path
+            d="M101 0 C130.22 29.81, 159.44 59.62, 200 101 M101 0 C127.76 27.3, 154.51 54.59, 200 101 M200 101 C168.2 132.8, 136.4 164.6, 101 200 M200 101 C175.45 125.55, 150.89 150.11, 101 200 M101 200 C63.31 163.06, 25.63 126.12, 0 101 M101 200 C71.79 171.37, 42.59 142.75, 0 101 M0 101 C34.93 66.07, 69.86 31.14, 101 0 M0 101 C26.12 74.88, 52.23 48.77, 101 0"
+            stroke="#1e1e1e" stroke-width="1" fill="none"></path>
+    </g>
+</svg>
